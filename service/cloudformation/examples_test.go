@@ -52,7 +52,7 @@ func ExampleCloudFormation_CreateStack() {
 			aws.String("Capability"), // Required
 			// More values...
 		},
-		DisableRollback: aws.Boolean(true),
+		DisableRollback: aws.Bool(true),
 		NotificationARNs: []*string{
 			aws.String("NotificationARN"), // Required
 			// More values...
@@ -62,7 +62,7 @@ func ExampleCloudFormation_CreateStack() {
 			{ // Required
 				ParameterKey:     aws.String("ParameterKey"),
 				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				UsePreviousValue: aws.Bool(true),
 			},
 			// More values...
 		},
@@ -77,7 +77,7 @@ func ExampleCloudFormation_CreateStack() {
 		},
 		TemplateBody:     aws.String("TemplateBody"),
 		TemplateURL:      aws.String("TemplateURL"),
-		TimeoutInMinutes: aws.Long(1),
+		TimeoutInMinutes: aws.Int64(1),
 	}
 	resp, err := svc.CreateStack(params)
 
@@ -248,7 +248,7 @@ func ExampleCloudFormation_EstimateTemplateCost() {
 			{ // Required
 				ParameterKey:     aws.String("ParameterKey"),
 				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				UsePreviousValue: aws.Bool(true),
 			},
 			// More values...
 		},
@@ -494,7 +494,7 @@ func ExampleCloudFormation_UpdateStack() {
 			{ // Required
 				ParameterKey:     aws.String("ParameterKey"),
 				ParameterValue:   aws.String("ParameterValue"),
-				UsePreviousValue: aws.Boolean(true),
+				UsePreviousValue: aws.Bool(true),
 			},
 			// More values...
 		},
@@ -504,7 +504,7 @@ func ExampleCloudFormation_UpdateStack() {
 		StackPolicyURL:              aws.String("StackPolicyURL"),
 		TemplateBody:                aws.String("TemplateBody"),
 		TemplateURL:                 aws.String("TemplateURL"),
-		UsePreviousTemplate:         aws.Boolean(true),
+		UsePreviousTemplate:         aws.Bool(true),
 	}
 	resp, err := svc.UpdateStack(params)
 

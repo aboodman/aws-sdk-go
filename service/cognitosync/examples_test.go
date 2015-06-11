@@ -243,7 +243,7 @@ func ExampleCognitoSync_ListDatasets() {
 	params := &cognitosync.ListDatasetsInput{
 		IdentityID:     aws.String("IdentityId"),     // Required
 		IdentityPoolID: aws.String("IdentityPoolId"), // Required
-		MaxResults:     aws.Long(1),
+		MaxResults:     aws.Int64(1),
 		NextToken:      aws.String("String"),
 	}
 	resp, err := svc.ListDatasets(params)
@@ -271,7 +271,7 @@ func ExampleCognitoSync_ListIdentityPoolUsage() {
 	svc := cognitosync.New(nil)
 
 	params := &cognitosync.ListIdentityPoolUsageInput{
-		MaxResults: aws.Long(1),
+		MaxResults: aws.Int64(1),
 		NextToken:  aws.String("String"),
 	}
 	resp, err := svc.ListIdentityPoolUsage(params)
@@ -302,8 +302,8 @@ func ExampleCognitoSync_ListRecords() {
 		DatasetName:      aws.String("DatasetName"),    // Required
 		IdentityID:       aws.String("IdentityId"),     // Required
 		IdentityPoolID:   aws.String("IdentityPoolId"), // Required
-		LastSyncCount:    aws.Long(1),
-		MaxResults:       aws.Long(1),
+		LastSyncCount:    aws.Int64(1),
+		MaxResults:       aws.Int64(1),
 		NextToken:        aws.String("String"),
 		SyncSessionToken: aws.String("SyncSessionToken"),
 	}
@@ -502,7 +502,7 @@ func ExampleCognitoSync_UpdateRecords() {
 			{ // Required
 				Key:                    aws.String("RecordKey"), // Required
 				Op:                     aws.String("Operation"), // Required
-				SyncCount:              aws.Long(1),             // Required
+				SyncCount:              aws.Int64(1),            // Required
 				DeviceLastModifiedDate: aws.Time(time.Now()),
 				Value: aws.String("RecordValue"),
 			},

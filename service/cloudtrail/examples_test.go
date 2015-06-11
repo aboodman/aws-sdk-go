@@ -24,7 +24,7 @@ func ExampleCloudTrail_CreateTrail() {
 		S3BucketName:               aws.String("String"), // Required
 		CloudWatchLogsLogGroupARN:  aws.String("String"),
 		CloudWatchLogsRoleARN:      aws.String("String"),
-		IncludeGlobalServiceEvents: aws.Boolean(true),
+		IncludeGlobalServiceEvents: aws.Bool(true),
 		S3KeyPrefix:                aws.String("String"),
 		SNSTopicName:               aws.String("String"),
 	}
@@ -145,7 +145,7 @@ func ExampleCloudTrail_LookupEvents() {
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
+		MaxResults: aws.Int64(1),
 		NextToken:  aws.String("NextToken"),
 		StartTime:  aws.Time(time.Now()),
 	}
@@ -231,7 +231,7 @@ func ExampleCloudTrail_UpdateTrail() {
 		Name: aws.String("String"), // Required
 		CloudWatchLogsLogGroupARN:  aws.String("String"),
 		CloudWatchLogsRoleARN:      aws.String("String"),
-		IncludeGlobalServiceEvents: aws.Boolean(true),
+		IncludeGlobalServiceEvents: aws.Bool(true),
 		S3BucketName:               aws.String("String"),
 		S3KeyPrefix:                aws.String("String"),
 		SNSTopicName:               aws.String("String"),

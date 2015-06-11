@@ -79,23 +79,23 @@ func ExampleCodePipeline_CreateCustomActionType() {
 	params := &codepipeline.CreateCustomActionTypeInput{
 		Category: aws.String("ActionCategory"), // Required
 		InputArtifactDetails: &codepipeline.ArtifactDetails{ // Required
-			MaximumCount: aws.Long(1), // Required
-			MinimumCount: aws.Long(1), // Required
+			MaximumCount: aws.Int64(1), // Required
+			MinimumCount: aws.Int64(1), // Required
 		},
 		OutputArtifactDetails: &codepipeline.ArtifactDetails{ // Required
-			MaximumCount: aws.Long(1), // Required
-			MinimumCount: aws.Long(1), // Required
+			MaximumCount: aws.Int64(1), // Required
+			MinimumCount: aws.Int64(1), // Required
 		},
 		Provider: aws.String("ActionProvider"), // Required
 		Version:  aws.String("Version"),        // Required
 		ConfigurationProperties: []*codepipeline.ActionConfigurationProperty{
 			{ // Required
-				Key:         aws.Boolean(true),                    // Required
+				Key:         aws.Bool(true),                       // Required
 				Name:        aws.String("ActionConfigurationKey"), // Required
-				Required:    aws.Boolean(true),                    // Required
-				Secret:      aws.Boolean(true),                    // Required
+				Required:    aws.Bool(true),                       // Required
+				Secret:      aws.Bool(true),                       // Required
 				Description: aws.String("Description"),
-				Queryable:   aws.Boolean(true),
+				Queryable:   aws.Bool(true),
 				Type:        aws.String("ActionConfigurationPropertyType"),
 			},
 			// More values...
@@ -167,7 +167,7 @@ func ExampleCodePipeline_CreatePipeline() {
 								// More values...
 							},
 							RoleARN:  aws.String("RoleArn"),
-							RunOrder: aws.Long(1),
+							RunOrder: aws.Int64(1),
 						},
 						// More values...
 					},
@@ -182,7 +182,7 @@ func ExampleCodePipeline_CreatePipeline() {
 				},
 				// More values...
 			},
-			Version: aws.Long(1),
+			Version: aws.Int64(1),
 		},
 	}
 	resp, err := svc.CreatePipeline(params)
@@ -353,7 +353,7 @@ func ExampleCodePipeline_GetPipeline() {
 
 	params := &codepipeline.GetPipelineInput{
 		Name:    aws.String("PipelineName"), // Required
-		Version: aws.Long(1),
+		Version: aws.Int64(1),
 	}
 	resp, err := svc.GetPipeline(params)
 
@@ -496,7 +496,7 @@ func ExampleCodePipeline_PollForJobs() {
 			Provider: aws.String("ActionProvider"), // Required
 			Version:  aws.String("Version"),        // Required
 		},
-		MaxBatchSize: aws.Long(1),
+		MaxBatchSize: aws.Int64(1),
 		QueryParam: map[string]*string{
 			"Key": aws.String("ActionConfigurationQueryableValue"), // Required
 			// More values...
@@ -533,7 +533,7 @@ func ExampleCodePipeline_PollForThirdPartyJobs() {
 			Provider: aws.String("ActionProvider"), // Required
 			Version:  aws.String("Version"),        // Required
 		},
-		MaxBatchSize: aws.Long(1),
+		MaxBatchSize: aws.Int64(1),
 	}
 	resp, err := svc.PollForThirdPartyJobs(params)
 
@@ -634,7 +634,7 @@ func ExampleCodePipeline_PutJobSuccessResult() {
 		},
 		ExecutionDetails: &codepipeline.ExecutionDetails{
 			ExternalExecutionID: aws.String("ExecutionId"),
-			PercentComplete:     aws.Long(1),
+			PercentComplete:     aws.Int64(1),
 			Summary:             aws.String("ExecutionSummary"),
 		},
 	}
@@ -705,7 +705,7 @@ func ExampleCodePipeline_PutThirdPartyJobSuccessResult() {
 		},
 		ExecutionDetails: &codepipeline.ExecutionDetails{
 			ExternalExecutionID: aws.String("ExecutionId"),
-			PercentComplete:     aws.Long(1),
+			PercentComplete:     aws.Int64(1),
 			Summary:             aws.String("ExecutionSummary"),
 		},
 	}
@@ -796,7 +796,7 @@ func ExampleCodePipeline_UpdatePipeline() {
 								// More values...
 							},
 							RoleARN:  aws.String("RoleArn"),
-							RunOrder: aws.Long(1),
+							RunOrder: aws.Int64(1),
 						},
 						// More values...
 					},
@@ -811,7 +811,7 @@ func ExampleCodePipeline_UpdatePipeline() {
 				},
 				// More values...
 			},
-			Version: aws.Long(1),
+			Version: aws.Int64(1),
 		},
 	}
 	resp, err := svc.UpdatePipeline(params)

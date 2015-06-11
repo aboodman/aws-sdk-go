@@ -119,7 +119,7 @@ func ExampleWorkSpaces_DescribeWorkspaces() {
 	params := &workspaces.DescribeWorkspacesInput{
 		BundleID:    aws.String("BundleId"),
 		DirectoryID: aws.String("DirectoryId"),
-		Limit:       aws.Long(1),
+		Limit:       aws.Int64(1),
 		NextToken:   aws.String("PaginationToken"),
 		UserName:    aws.String("UserName"),
 		WorkspaceIDs: []*string{

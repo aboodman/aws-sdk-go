@@ -55,8 +55,8 @@ func ExampleLambda_CreateEventSourceMapping() {
 		EventSourceARN:   aws.String("Arn"),                 // Required
 		FunctionName:     aws.String("FunctionName"),        // Required
 		StartingPosition: aws.String("EventSourcePosition"), // Required
-		BatchSize:        aws.Long(1),
-		Enabled:          aws.Boolean(true),
+		BatchSize:        aws.Int64(1),
+		Enabled:          aws.Bool(true),
 	}
 	resp, err := svc.CreateEventSourceMapping(params)
 
@@ -94,8 +94,8 @@ func ExampleLambda_CreateFunction() {
 		Role:         aws.String("RoleArn"),      // Required
 		Runtime:      aws.String("Runtime"),      // Required
 		Description:  aws.String("Description"),
-		MemorySize:   aws.Long(1),
-		Timeout:      aws.Long(1),
+		MemorySize:   aws.Int64(1),
+		Timeout:      aws.Int64(1),
 	}
 	resp, err := svc.CreateFunction(params)
 
@@ -346,7 +346,7 @@ func ExampleLambda_ListEventSourceMappings() {
 		EventSourceARN: aws.String("Arn"),
 		FunctionName:   aws.String("FunctionName"),
 		Marker:         aws.String("String"),
-		MaxItems:       aws.Long(1),
+		MaxItems:       aws.Int64(1),
 	}
 	resp, err := svc.ListEventSourceMappings(params)
 
@@ -374,7 +374,7 @@ func ExampleLambda_ListFunctions() {
 
 	params := &lambda.ListFunctionsInput{
 		Marker:   aws.String("String"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListFunctions(params)
 
@@ -430,8 +430,8 @@ func ExampleLambda_UpdateEventSourceMapping() {
 
 	params := &lambda.UpdateEventSourceMappingInput{
 		UUID:         aws.String("String"), // Required
-		BatchSize:    aws.Long(1),
-		Enabled:      aws.Boolean(true),
+		BatchSize:    aws.Int64(1),
+		Enabled:      aws.Bool(true),
 		FunctionName: aws.String("FunctionName"),
 	}
 	resp, err := svc.UpdateEventSourceMapping(params)
@@ -493,9 +493,9 @@ func ExampleLambda_UpdateFunctionConfiguration() {
 		FunctionName: aws.String("FunctionName"), // Required
 		Description:  aws.String("Description"),
 		Handler:      aws.String("Handler"),
-		MemorySize:   aws.Long(1),
+		MemorySize:   aws.Int64(1),
 		Role:         aws.String("RoleArn"),
-		Timeout:      aws.Long(1),
+		Timeout:      aws.Int64(1),
 	}
 	resp, err := svc.UpdateFunctionConfiguration(params)
 

@@ -26,13 +26,13 @@ func ExampleCloudSearchDomain_Search() {
 		Facet:        aws.String("Facet"),
 		FilterQuery:  aws.String("FilterQuery"),
 		Highlight:    aws.String("Highlight"),
-		Partial:      aws.Boolean(true),
+		Partial:      aws.Bool(true),
 		QueryOptions: aws.String("QueryOptions"),
 		QueryParser:  aws.String("QueryParser"),
 		Return:       aws.String("Return"),
-		Size:         aws.Long(1),
+		Size:         aws.Int64(1),
 		Sort:         aws.String("Sort"),
-		Start:        aws.Long(1),
+		Start:        aws.Int64(1),
 	}
 	resp, err := svc.Search(params)
 
@@ -61,7 +61,7 @@ func ExampleCloudSearchDomain_Suggest() {
 	params := &cloudsearchdomain.SuggestInput{
 		Query:     aws.String("Query"),     // Required
 		Suggester: aws.String("Suggester"), // Required
-		Size:      aws.Long(1),
+		Size:      aws.Int64(1),
 	}
 	resp, err := svc.Suggest(params)
 

@@ -159,10 +159,10 @@ func ExampleSupport_DescribeCases() {
 			// More values...
 		},
 		DisplayID:             aws.String("DisplayId"),
-		IncludeCommunications: aws.Boolean(true),
-		IncludeResolvedCases:  aws.Boolean(true),
+		IncludeCommunications: aws.Bool(true),
+		IncludeResolvedCases:  aws.Bool(true),
 		Language:              aws.String("Language"),
-		MaxResults:            aws.Long(1),
+		MaxResults:            aws.Int64(1),
 		NextToken:             aws.String("NextToken"),
 	}
 	resp, err := svc.DescribeCases(params)
@@ -193,7 +193,7 @@ func ExampleSupport_DescribeCommunications() {
 		CaseID:     aws.String("CaseId"), // Required
 		AfterTime:  aws.String("AfterTime"),
 		BeforeTime: aws.String("BeforeTime"),
-		MaxResults: aws.Long(1),
+		MaxResults: aws.Int64(1),
 		NextToken:  aws.String("NextToken"),
 	}
 	resp, err := svc.DescribeCommunications(params)

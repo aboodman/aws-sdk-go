@@ -126,7 +126,7 @@ func ExampleDataPipeline_DeactivatePipeline() {
 
 	params := &datapipeline.DeactivatePipelineInput{
 		PipelineID:   aws.String("id"), // Required
-		CancelActive: aws.Boolean(true),
+		CancelActive: aws.Bool(true),
 	}
 	resp, err := svc.DeactivatePipeline(params)
 
@@ -185,7 +185,7 @@ func ExampleDataPipeline_DescribeObjects() {
 			// More values...
 		},
 		PipelineID:          aws.String("id"), // Required
-		EvaluateExpressions: aws.Boolean(true),
+		EvaluateExpressions: aws.Bool(true),
 		Marker:              aws.String("string"),
 	}
 	resp, err := svc.DescribeObjects(params)
@@ -423,7 +423,7 @@ func ExampleDataPipeline_QueryObjects() {
 	params := &datapipeline.QueryObjectsInput{
 		PipelineID: aws.String("id"),     // Required
 		Sphere:     aws.String("string"), // Required
-		Limit:      aws.Long(1),
+		Limit:      aws.Int64(1),
 		Marker:     aws.String("string"),
 		Query: &datapipeline.Query{
 			Selectors: []*datapipeline.Selector{

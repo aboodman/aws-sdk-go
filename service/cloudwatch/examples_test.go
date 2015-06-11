@@ -53,7 +53,7 @@ func ExampleCloudWatch_DescribeAlarmHistory() {
 		AlarmName:       aws.String("AlarmName"),
 		EndDate:         aws.Time(time.Now()),
 		HistoryItemType: aws.String("HistoryItemType"),
-		MaxRecords:      aws.Long(1),
+		MaxRecords:      aws.Int64(1),
 		NextToken:       aws.String("NextToken"),
 		StartDate:       aws.Time(time.Now()),
 	}
@@ -88,7 +88,7 @@ func ExampleCloudWatch_DescribeAlarms() {
 			aws.String("AlarmName"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("NextToken"),
 		StateValue: aws.String("StateValue"),
 	}
@@ -126,7 +126,7 @@ func ExampleCloudWatch_DescribeAlarmsForMetric() {
 			},
 			// More values...
 		},
-		Period:    aws.Long(1),
+		Period:    aws.Int64(1),
 		Statistic: aws.String("Statistic"),
 		Unit:      aws.String("StandardUnit"),
 	}
@@ -218,7 +218,7 @@ func ExampleCloudWatch_GetMetricStatistics() {
 		EndTime:    aws.Time(time.Now()),     // Required
 		MetricName: aws.String("MetricName"), // Required
 		Namespace:  aws.String("Namespace"),  // Required
-		Period:     aws.Long(1),              // Required
+		Period:     aws.Int64(1),             // Required
 		StartTime:  aws.Time(time.Now()),     // Required
 		Statistics: []*string{ // Required
 			aws.String("Statistic"), // Required
@@ -296,13 +296,13 @@ func ExampleCloudWatch_PutMetricAlarm() {
 	params := &cloudwatch.PutMetricAlarmInput{
 		AlarmName:          aws.String("AlarmName"),          // Required
 		ComparisonOperator: aws.String("ComparisonOperator"), // Required
-		EvaluationPeriods:  aws.Long(1),                      // Required
+		EvaluationPeriods:  aws.Int64(1),                     // Required
 		MetricName:         aws.String("MetricName"),         // Required
 		Namespace:          aws.String("Namespace"),          // Required
-		Period:             aws.Long(1),                      // Required
+		Period:             aws.Int64(1),                     // Required
 		Statistic:          aws.String("Statistic"),          // Required
-		Threshold:          aws.Double(1.0),                  // Required
-		ActionsEnabled:     aws.Boolean(true),
+		Threshold:          aws.Float64(1.0),                 // Required
+		ActionsEnabled:     aws.Bool(true),
 		AlarmActions: []*string{
 			aws.String("ResourceName"), // Required
 			// More values...
@@ -361,14 +361,14 @@ func ExampleCloudWatch_PutMetricData() {
 					// More values...
 				},
 				StatisticValues: &cloudwatch.StatisticSet{
-					Maximum:     aws.Double(1.0), // Required
-					Minimum:     aws.Double(1.0), // Required
-					SampleCount: aws.Double(1.0), // Required
-					Sum:         aws.Double(1.0), // Required
+					Maximum:     aws.Float64(1.0), // Required
+					Minimum:     aws.Float64(1.0), // Required
+					SampleCount: aws.Float64(1.0), // Required
+					Sum:         aws.Float64(1.0), // Required
 				},
 				Timestamp: aws.Time(time.Now()),
 				Unit:      aws.String("StandardUnit"),
-				Value:     aws.Double(1.0),
+				Value:     aws.Float64(1.0),
 			},
 			// More values...
 		},

@@ -253,7 +253,7 @@ func ExampleSSM_ListAssociations() {
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
+		MaxResults: aws.Int64(1),
 		NextToken:  aws.String("NextToken"),
 	}
 	resp, err := svc.ListAssociations(params)
@@ -288,7 +288,7 @@ func ExampleSSM_ListDocuments() {
 			},
 			// More values...
 		},
-		MaxResults: aws.Long(1),
+		MaxResults: aws.Int64(1),
 		NextToken:  aws.String("NextToken"),
 	}
 	resp, err := svc.ListDocuments(params)

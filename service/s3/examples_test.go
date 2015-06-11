@@ -57,7 +57,7 @@ func ExampleS3_CompleteMultipartUpload() {
 			Parts: []*s3.CompletedPart{
 				{ // Required
 					ETag:       aws.String("ETag"),
-					PartNumber: aws.Long(1),
+					PartNumber: aws.Int64(1),
 				},
 				// More values...
 			},
@@ -465,7 +465,7 @@ func ExampleS3_DeleteObjects() {
 				},
 				// More values...
 			},
-			Quiet: aws.Boolean(true),
+			Quiet: aws.Bool(true),
 		},
 		MFA:          aws.String("MFA"),
 		RequestPayer: aws.String("RequestPayer"),
@@ -1043,7 +1043,7 @@ func ExampleS3_ListMultipartUploads() {
 		Delimiter:      aws.String("Delimiter"),
 		EncodingType:   aws.String("EncodingType"),
 		KeyMarker:      aws.String("KeyMarker"),
-		MaxUploads:     aws.Long(1),
+		MaxUploads:     aws.Int64(1),
 		Prefix:         aws.String("Prefix"),
 		UploadIDMarker: aws.String("UploadIdMarker"),
 	}
@@ -1076,7 +1076,7 @@ func ExampleS3_ListObjectVersions() {
 		Delimiter:       aws.String("Delimiter"),
 		EncodingType:    aws.String("EncodingType"),
 		KeyMarker:       aws.String("KeyMarker"),
-		MaxKeys:         aws.Long(1),
+		MaxKeys:         aws.Int64(1),
 		Prefix:          aws.String("Prefix"),
 		VersionIDMarker: aws.String("VersionIdMarker"),
 	}
@@ -1109,7 +1109,7 @@ func ExampleS3_ListObjects() {
 		Delimiter:    aws.String("Delimiter"),
 		EncodingType: aws.String("EncodingType"),
 		Marker:       aws.String("Marker"),
-		MaxKeys:      aws.Long(1),
+		MaxKeys:      aws.Int64(1),
 		Prefix:       aws.String("Prefix"),
 	}
 	resp, err := svc.ListObjects(params)
@@ -1140,8 +1140,8 @@ func ExampleS3_ListParts() {
 		Bucket:           aws.String("BucketName"),        // Required
 		Key:              aws.String("ObjectKey"),         // Required
 		UploadID:         aws.String("MultipartUploadId"), // Required
-		MaxParts:         aws.Long(1),
-		PartNumberMarker: aws.Long(1),
+		MaxParts:         aws.Int64(1),
+		PartNumberMarker: aws.Int64(1),
 		RequestPayer:     aws.String("RequestPayer"),
 	}
 	resp, err := svc.ListParts(params)
@@ -1241,7 +1241,7 @@ func ExampleS3_PutBucketCORS() {
 						aws.String("ExposeHeader"), // Required
 						// More values...
 					},
-					MaxAgeSeconds: aws.Long(1),
+					MaxAgeSeconds: aws.Int64(1),
 				},
 				// More values...
 			},
@@ -1280,19 +1280,19 @@ func ExampleS3_PutBucketLifecycle() {
 					Status: aws.String("ExpirationStatus"), // Required
 					Expiration: &s3.LifecycleExpiration{
 						Date: aws.Time(time.Now()),
-						Days: aws.Long(1),
+						Days: aws.Int64(1),
 					},
 					ID: aws.String("ID"),
 					NoncurrentVersionExpiration: &s3.NoncurrentVersionExpiration{
-						NoncurrentDays: aws.Long(1),
+						NoncurrentDays: aws.Int64(1),
 					},
 					NoncurrentVersionTransition: &s3.NoncurrentVersionTransition{
-						NoncurrentDays: aws.Long(1),
+						NoncurrentDays: aws.Int64(1),
 						StorageClass:   aws.String("TransitionStorageClass"),
 					},
 					Transition: &s3.Transition{
 						Date:         aws.Time(time.Now()),
-						Days:         aws.Long(1),
+						Days:         aws.Int64(1),
 						StorageClass: aws.String("TransitionStorageClass"),
 					},
 				},
@@ -1720,7 +1720,7 @@ func ExampleS3_PutObject() {
 		ContentDisposition: aws.String("ContentDisposition"),
 		ContentEncoding:    aws.String("ContentEncoding"),
 		ContentLanguage:    aws.String("ContentLanguage"),
-		ContentLength:      aws.Long(1),
+		ContentLength:      aws.Int64(1),
 		ContentType:        aws.String("ContentType"),
 		Expires:            aws.Time(time.Now()),
 		GrantFullControl:   aws.String("GrantFullControl"),
@@ -1823,7 +1823,7 @@ func ExampleS3_RestoreObject() {
 		Key:          aws.String("ObjectKey"),  // Required
 		RequestPayer: aws.String("RequestPayer"),
 		RestoreRequest: &s3.RestoreRequest{
-			Days: aws.Long(1), // Required
+			Days: aws.Int64(1), // Required
 		},
 		VersionID: aws.String("ObjectVersionId"),
 	}
@@ -1854,10 +1854,10 @@ func ExampleS3_UploadPart() {
 	params := &s3.UploadPartInput{
 		Bucket:               aws.String("BucketName"),        // Required
 		Key:                  aws.String("ObjectKey"),         // Required
-		PartNumber:           aws.Long(1),                     // Required
+		PartNumber:           aws.Int64(1),                    // Required
 		UploadID:             aws.String("MultipartUploadId"), // Required
 		Body:                 bytes.NewReader([]byte("PAYLOAD")),
-		ContentLength:        aws.Long(1),
+		ContentLength:        aws.Int64(1),
 		RequestPayer:         aws.String("RequestPayer"),
 		SSECustomerAlgorithm: aws.String("SSECustomerAlgorithm"),
 		SSECustomerKey:       aws.String("SSECustomerKey"),
@@ -1891,7 +1891,7 @@ func ExampleS3_UploadPartCopy() {
 		Bucket:                         aws.String("BucketName"),        // Required
 		CopySource:                     aws.String("CopySource"),        // Required
 		Key:                            aws.String("ObjectKey"),         // Required
-		PartNumber:                     aws.Long(1),                     // Required
+		PartNumber:                     aws.Int64(1),                    // Required
 		UploadID:                       aws.String("MultipartUploadId"), // Required
 		CopySourceIfMatch:              aws.String("CopySourceIfMatch"),
 		CopySourceIfModifiedSince:      aws.Time(time.Now()),

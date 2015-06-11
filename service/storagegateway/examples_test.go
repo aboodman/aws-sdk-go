@@ -206,7 +206,7 @@ func ExampleStorageGateway_CreateCachediSCSIVolume() {
 		GatewayARN:         aws.String("GatewayARN"),         // Required
 		NetworkInterfaceID: aws.String("NetworkInterfaceId"), // Required
 		TargetName:         aws.String("TargetName"),         // Required
-		VolumeSizeInBytes:  aws.Long(1),                      // Required
+		VolumeSizeInBytes:  aws.Int64(1),                     // Required
 		SnapshotID:         aws.String("SnapshotId"),
 	}
 	resp, err := svc.CreateCachediSCSIVolume(params)
@@ -293,7 +293,7 @@ func ExampleStorageGateway_CreateStorediSCSIVolume() {
 		DiskID:               aws.String("DiskId"),             // Required
 		GatewayARN:           aws.String("GatewayARN"),         // Required
 		NetworkInterfaceID:   aws.String("NetworkInterfaceId"), // Required
-		PreserveExistingData: aws.Boolean(true),                // Required
+		PreserveExistingData: aws.Bool(true),                   // Required
 		TargetName:           aws.String("TargetName"),         // Required
 		SnapshotID:           aws.String("SnapshotId"),
 	}
@@ -324,9 +324,9 @@ func ExampleStorageGateway_CreateTapes() {
 	params := &storagegateway.CreateTapesInput{
 		ClientToken:       aws.String("ClientToken"),       // Required
 		GatewayARN:        aws.String("GatewayARN"),        // Required
-		NumTapesToCreate:  aws.Long(1),                     // Required
+		NumTapesToCreate:  aws.Int64(1),                    // Required
 		TapeBarcodePrefix: aws.String("TapeBarcodePrefix"), // Required
-		TapeSizeInBytes:   aws.Long(1),                     // Required
+		TapeSizeInBytes:   aws.Int64(1),                    // Required
 	}
 	resp, err := svc.CreateTapes(params)
 
@@ -767,7 +767,7 @@ func ExampleStorageGateway_DescribeTapeArchives() {
 	svc := storagegateway.New(nil)
 
 	params := &storagegateway.DescribeTapeArchivesInput{
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("Marker"),
 		TapeARNs: []*string{
 			aws.String("TapeARN"), // Required
@@ -800,7 +800,7 @@ func ExampleStorageGateway_DescribeTapeRecoveryPoints() {
 
 	params := &storagegateway.DescribeTapeRecoveryPointsInput{
 		GatewayARN: aws.String("GatewayARN"), // Required
-		Limit:      aws.Long(1),
+		Limit:      aws.Int64(1),
 		Marker:     aws.String("Marker"),
 	}
 	resp, err := svc.DescribeTapeRecoveryPoints(params)
@@ -829,7 +829,7 @@ func ExampleStorageGateway_DescribeTapes() {
 
 	params := &storagegateway.DescribeTapesInput{
 		GatewayARN: aws.String("GatewayARN"), // Required
-		Limit:      aws.Long(1),
+		Limit:      aws.Int64(1),
 		Marker:     aws.String("Marker"),
 		TapeARNs: []*string{
 			aws.String("TapeARN"), // Required
@@ -889,7 +889,7 @@ func ExampleStorageGateway_DescribeVTLDevices() {
 
 	params := &storagegateway.DescribeVTLDevicesInput{
 		GatewayARN: aws.String("GatewayARN"), // Required
-		Limit:      aws.Long(1),
+		Limit:      aws.Int64(1),
 		Marker:     aws.String("Marker"),
 		VTLDeviceARNs: []*string{
 			aws.String("VTLDeviceARN"), // Required
@@ -975,7 +975,7 @@ func ExampleStorageGateway_ListGateways() {
 	svc := storagegateway.New(nil)
 
 	params := &storagegateway.ListGatewaysInput{
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("Marker"),
 	}
 	resp, err := svc.ListGateways(params)
@@ -1085,7 +1085,7 @@ func ExampleStorageGateway_ListVolumes() {
 
 	params := &storagegateway.ListVolumesInput{
 		GatewayARN: aws.String("GatewayARN"), // Required
-		Limit:      aws.Long(1),
+		Limit:      aws.Int64(1),
 		Marker:     aws.String("Marker"),
 	}
 	resp, err := svc.ListVolumes(params)
@@ -1251,8 +1251,8 @@ func ExampleStorageGateway_UpdateBandwidthRateLimit() {
 
 	params := &storagegateway.UpdateBandwidthRateLimitInput{
 		GatewayARN:                           aws.String("GatewayARN"), // Required
-		AverageDownloadRateLimitInBitsPerSec: aws.Long(1),
-		AverageUploadRateLimitInBitsPerSec:   aws.Long(1),
+		AverageDownloadRateLimitInBitsPerSec: aws.Int64(1),
+		AverageUploadRateLimitInBitsPerSec:   aws.Int64(1),
 	}
 	resp, err := svc.UpdateBandwidthRateLimit(params)
 
@@ -1365,10 +1365,10 @@ func ExampleStorageGateway_UpdateMaintenanceStartTime() {
 	svc := storagegateway.New(nil)
 
 	params := &storagegateway.UpdateMaintenanceStartTimeInput{
-		DayOfWeek:    aws.Long(1),              // Required
+		DayOfWeek:    aws.Int64(1),             // Required
 		GatewayARN:   aws.String("GatewayARN"), // Required
-		HourOfDay:    aws.Long(1),              // Required
-		MinuteOfHour: aws.Long(1),              // Required
+		HourOfDay:    aws.Int64(1),             // Required
+		MinuteOfHour: aws.Int64(1),             // Required
 	}
 	resp, err := svc.UpdateMaintenanceStartTime(params)
 
@@ -1395,8 +1395,8 @@ func ExampleStorageGateway_UpdateSnapshotSchedule() {
 	svc := storagegateway.New(nil)
 
 	params := &storagegateway.UpdateSnapshotScheduleInput{
-		RecurrenceInHours: aws.Long(1),             // Required
-		StartAt:           aws.Long(1),             // Required
+		RecurrenceInHours: aws.Int64(1),            // Required
+		StartAt:           aws.Int64(1),            // Required
 		VolumeARN:         aws.String("VolumeARN"), // Required
 		Description:       aws.String("Description"),
 	}

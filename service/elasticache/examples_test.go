@@ -113,7 +113,7 @@ func ExampleElastiCache_CreateCacheCluster() {
 	params := &elasticache.CreateCacheClusterInput{
 		CacheClusterID:          aws.String("String"), // Required
 		AZMode:                  aws.String("AZMode"),
-		AutoMinorVersionUpgrade: aws.Boolean(true),
+		AutoMinorVersionUpgrade: aws.Bool(true),
 		CacheNodeType:           aws.String("String"),
 		CacheParameterGroupName: aws.String("String"),
 		CacheSecurityGroupNames: []*string{
@@ -124,8 +124,8 @@ func ExampleElastiCache_CreateCacheCluster() {
 		Engine:               aws.String("String"),
 		EngineVersion:        aws.String("String"),
 		NotificationTopicARN: aws.String("String"),
-		NumCacheNodes:        aws.Long(1),
-		Port:                 aws.Long(1),
+		NumCacheNodes:        aws.Int64(1),
+		Port:                 aws.Int64(1),
 		PreferredAvailabilityZone: aws.String("String"),
 		PreferredAvailabilityZones: []*string{
 			aws.String("String"), // Required
@@ -142,7 +142,7 @@ func ExampleElastiCache_CreateCacheCluster() {
 			// More values...
 		},
 		SnapshotName:           aws.String("String"),
-		SnapshotRetentionLimit: aws.Long(1),
+		SnapshotRetentionLimit: aws.Int64(1),
 		SnapshotWindow:         aws.String("String"),
 		Tags: []*elasticache.Tag{
 			{ // Required
@@ -268,8 +268,8 @@ func ExampleElastiCache_CreateReplicationGroup() {
 	params := &elasticache.CreateReplicationGroupInput{
 		ReplicationGroupDescription: aws.String("String"), // Required
 		ReplicationGroupID:          aws.String("String"), // Required
-		AutoMinorVersionUpgrade:     aws.Boolean(true),
-		AutomaticFailoverEnabled:    aws.Boolean(true),
+		AutoMinorVersionUpgrade:     aws.Bool(true),
+		AutomaticFailoverEnabled:    aws.Bool(true),
 		CacheNodeType:               aws.String("String"),
 		CacheParameterGroupName:     aws.String("String"),
 		CacheSecurityGroupNames: []*string{
@@ -280,8 +280,8 @@ func ExampleElastiCache_CreateReplicationGroup() {
 		Engine:               aws.String("String"),
 		EngineVersion:        aws.String("String"),
 		NotificationTopicARN: aws.String("String"),
-		NumCacheClusters:     aws.Long(1),
-		Port:                 aws.Long(1),
+		NumCacheClusters:     aws.Int64(1),
+		Port:                 aws.Int64(1),
 		PreferredCacheClusterAZs: []*string{
 			aws.String("String"), // Required
 			// More values...
@@ -297,7 +297,7 @@ func ExampleElastiCache_CreateReplicationGroup() {
 			// More values...
 		},
 		SnapshotName:           aws.String("String"),
-		SnapshotRetentionLimit: aws.Long(1),
+		SnapshotRetentionLimit: aws.Int64(1),
 		SnapshotWindow:         aws.String("String"),
 		Tags: []*elasticache.Tag{
 			{ // Required
@@ -471,7 +471,7 @@ func ExampleElastiCache_DeleteReplicationGroup() {
 	params := &elasticache.DeleteReplicationGroupInput{
 		ReplicationGroupID:      aws.String("String"), // Required
 		FinalSnapshotIdentifier: aws.String("String"),
-		RetainPrimaryCluster:    aws.Boolean(true),
+		RetainPrimaryCluster:    aws.Bool(true),
 	}
 	resp, err := svc.DeleteReplicationGroup(params)
 
@@ -527,8 +527,8 @@ func ExampleElastiCache_DescribeCacheClusters() {
 	params := &elasticache.DescribeCacheClustersInput{
 		CacheClusterID:    aws.String("String"),
 		Marker:            aws.String("String"),
-		MaxRecords:        aws.Long(1),
-		ShowCacheNodeInfo: aws.Boolean(true),
+		MaxRecords:        aws.Int64(1),
+		ShowCacheNodeInfo: aws.Bool(true),
 	}
 	resp, err := svc.DescribeCacheClusters(params)
 
@@ -556,11 +556,11 @@ func ExampleElastiCache_DescribeCacheEngineVersions() {
 
 	params := &elasticache.DescribeCacheEngineVersionsInput{
 		CacheParameterGroupFamily: aws.String("String"),
-		DefaultOnly:               aws.Boolean(true),
+		DefaultOnly:               aws.Bool(true),
 		Engine:                    aws.String("String"),
 		EngineVersion:             aws.String("String"),
 		Marker:                    aws.String("String"),
-		MaxRecords:                aws.Long(1),
+		MaxRecords:                aws.Int64(1),
 	}
 	resp, err := svc.DescribeCacheEngineVersions(params)
 
@@ -589,7 +589,7 @@ func ExampleElastiCache_DescribeCacheParameterGroups() {
 	params := &elasticache.DescribeCacheParameterGroupsInput{
 		CacheParameterGroupName: aws.String("String"),
 		Marker:                  aws.String("String"),
-		MaxRecords:              aws.Long(1),
+		MaxRecords:              aws.Int64(1),
 	}
 	resp, err := svc.DescribeCacheParameterGroups(params)
 
@@ -618,7 +618,7 @@ func ExampleElastiCache_DescribeCacheParameters() {
 	params := &elasticache.DescribeCacheParametersInput{
 		CacheParameterGroupName: aws.String("String"), // Required
 		Marker:                  aws.String("String"),
-		MaxRecords:              aws.Long(1),
+		MaxRecords:              aws.Int64(1),
 		Source:                  aws.String("String"),
 	}
 	resp, err := svc.DescribeCacheParameters(params)
@@ -648,7 +648,7 @@ func ExampleElastiCache_DescribeCacheSecurityGroups() {
 	params := &elasticache.DescribeCacheSecurityGroupsInput{
 		CacheSecurityGroupName: aws.String("String"),
 		Marker:                 aws.String("String"),
-		MaxRecords:             aws.Long(1),
+		MaxRecords:             aws.Int64(1),
 	}
 	resp, err := svc.DescribeCacheSecurityGroups(params)
 
@@ -677,7 +677,7 @@ func ExampleElastiCache_DescribeCacheSubnetGroups() {
 	params := &elasticache.DescribeCacheSubnetGroupsInput{
 		CacheSubnetGroupName: aws.String("String"),
 		Marker:               aws.String("String"),
-		MaxRecords:           aws.Long(1),
+		MaxRecords:           aws.Int64(1),
 	}
 	resp, err := svc.DescribeCacheSubnetGroups(params)
 
@@ -706,7 +706,7 @@ func ExampleElastiCache_DescribeEngineDefaultParameters() {
 	params := &elasticache.DescribeEngineDefaultParametersInput{
 		CacheParameterGroupFamily: aws.String("String"), // Required
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeEngineDefaultParameters(params)
 
@@ -733,10 +733,10 @@ func ExampleElastiCache_DescribeEvents() {
 	svc := elasticache.New(nil)
 
 	params := &elasticache.DescribeEventsInput{
-		Duration:         aws.Long(1),
+		Duration:         aws.Int64(1),
 		EndTime:          aws.Time(time.Now()),
 		Marker:           aws.String("String"),
-		MaxRecords:       aws.Long(1),
+		MaxRecords:       aws.Int64(1),
 		SourceIdentifier: aws.String("String"),
 		SourceType:       aws.String("SourceType"),
 		StartTime:        aws.Time(time.Now()),
@@ -767,7 +767,7 @@ func ExampleElastiCache_DescribeReplicationGroups() {
 
 	params := &elasticache.DescribeReplicationGroupsInput{
 		Marker:             aws.String("String"),
-		MaxRecords:         aws.Long(1),
+		MaxRecords:         aws.Int64(1),
 		ReplicationGroupID: aws.String("String"),
 	}
 	resp, err := svc.DescribeReplicationGroups(params)
@@ -798,7 +798,7 @@ func ExampleElastiCache_DescribeReservedCacheNodes() {
 		CacheNodeType:                aws.String("String"),
 		Duration:                     aws.String("String"),
 		Marker:                       aws.String("String"),
-		MaxRecords:                   aws.Long(1),
+		MaxRecords:                   aws.Int64(1),
 		OfferingType:                 aws.String("String"),
 		ProductDescription:           aws.String("String"),
 		ReservedCacheNodeID:          aws.String("String"),
@@ -832,7 +832,7 @@ func ExampleElastiCache_DescribeReservedCacheNodesOfferings() {
 		CacheNodeType:                aws.String("String"),
 		Duration:                     aws.String("String"),
 		Marker:                       aws.String("String"),
-		MaxRecords:                   aws.Long(1),
+		MaxRecords:                   aws.Int64(1),
 		OfferingType:                 aws.String("String"),
 		ProductDescription:           aws.String("String"),
 		ReservedCacheNodesOfferingID: aws.String("String"),
@@ -864,7 +864,7 @@ func ExampleElastiCache_DescribeSnapshots() {
 	params := &elasticache.DescribeSnapshotsInput{
 		CacheClusterID: aws.String("String"),
 		Marker:         aws.String("String"),
-		MaxRecords:     aws.Long(1),
+		MaxRecords:     aws.Int64(1),
 		SnapshotName:   aws.String("String"),
 		SnapshotSource: aws.String("String"),
 	}
@@ -922,8 +922,8 @@ func ExampleElastiCache_ModifyCacheCluster() {
 	params := &elasticache.ModifyCacheClusterInput{
 		CacheClusterID:          aws.String("String"), // Required
 		AZMode:                  aws.String("AZMode"),
-		ApplyImmediately:        aws.Boolean(true),
-		AutoMinorVersionUpgrade: aws.Boolean(true),
+		ApplyImmediately:        aws.Bool(true),
+		AutoMinorVersionUpgrade: aws.Bool(true),
 		CacheNodeIDsToRemove: []*string{
 			aws.String("String"), // Required
 			// More values...
@@ -940,13 +940,13 @@ func ExampleElastiCache_ModifyCacheCluster() {
 		},
 		NotificationTopicARN:       aws.String("String"),
 		NotificationTopicStatus:    aws.String("String"),
-		NumCacheNodes:              aws.Long(1),
+		NumCacheNodes:              aws.Int64(1),
 		PreferredMaintenanceWindow: aws.String("String"),
 		SecurityGroupIDs: []*string{
 			aws.String("String"), // Required
 			// More values...
 		},
-		SnapshotRetentionLimit: aws.Long(1),
+		SnapshotRetentionLimit: aws.Int64(1),
 		SnapshotWindow:         aws.String("String"),
 	}
 	resp, err := svc.ModifyCacheCluster(params)
@@ -1041,9 +1041,9 @@ func ExampleElastiCache_ModifyReplicationGroup() {
 
 	params := &elasticache.ModifyReplicationGroupInput{
 		ReplicationGroupID:       aws.String("String"), // Required
-		ApplyImmediately:         aws.Boolean(true),
-		AutoMinorVersionUpgrade:  aws.Boolean(true),
-		AutomaticFailoverEnabled: aws.Boolean(true),
+		ApplyImmediately:         aws.Bool(true),
+		AutoMinorVersionUpgrade:  aws.Bool(true),
+		AutomaticFailoverEnabled: aws.Bool(true),
 		CacheParameterGroupName:  aws.String("String"),
 		CacheSecurityGroupNames: []*string{
 			aws.String("String"), // Required
@@ -1059,7 +1059,7 @@ func ExampleElastiCache_ModifyReplicationGroup() {
 			aws.String("String"), // Required
 			// More values...
 		},
-		SnapshotRetentionLimit: aws.Long(1),
+		SnapshotRetentionLimit: aws.Int64(1),
 		SnapshotWindow:         aws.String("String"),
 		SnapshottingClusterID:  aws.String("String"),
 	}
@@ -1089,7 +1089,7 @@ func ExampleElastiCache_PurchaseReservedCacheNodesOffering() {
 
 	params := &elasticache.PurchaseReservedCacheNodesOfferingInput{
 		ReservedCacheNodesOfferingID: aws.String("String"), // Required
-		CacheNodeCount:               aws.Long(1),
+		CacheNodeCount:               aws.Int64(1),
 		ReservedCacheNodeID:          aws.String("String"),
 	}
 	resp, err := svc.PurchaseReservedCacheNodesOffering(params)
@@ -1187,7 +1187,7 @@ func ExampleElastiCache_ResetCacheParameterGroup() {
 			},
 			// More values...
 		},
-		ResetAllParameters: aws.Boolean(true),
+		ResetAllParameters: aws.Bool(true),
 	}
 	resp, err := svc.ResetCacheParameterGroup(params)
 

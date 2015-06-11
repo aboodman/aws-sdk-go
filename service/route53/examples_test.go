@@ -61,7 +61,7 @@ func ExampleRoute53_ChangeResourceRecordSets() {
 						Type: aws.String("RRType"),  // Required
 						AliasTarget: &route53.AliasTarget{
 							DNSName:              aws.String("DNSName"),    // Required
-							EvaluateTargetHealth: aws.Boolean(true),        // Required
+							EvaluateTargetHealth: aws.Bool(true),           // Required
 							HostedZoneID:         aws.String("ResourceId"), // Required
 						},
 						Failover: aws.String("ResourceRecordSetFailover"),
@@ -79,8 +79,8 @@ func ExampleRoute53_ChangeResourceRecordSets() {
 							// More values...
 						},
 						SetIdentifier: aws.String("ResourceRecordSetIdentifier"),
-						TTL:           aws.Long(1),
-						Weight:        aws.Long(1),
+						TTL:           aws.Int64(1),
+						Weight:        aws.Int64(1),
 					},
 				},
 				// More values...
@@ -156,11 +156,11 @@ func ExampleRoute53_CreateHealthCheck() {
 		CallerReference: aws.String("HealthCheckNonce"), // Required
 		HealthCheckConfig: &route53.HealthCheckConfig{ // Required
 			Type:                     aws.String("HealthCheckType"), // Required
-			FailureThreshold:         aws.Long(1),
+			FailureThreshold:         aws.Int64(1),
 			FullyQualifiedDomainName: aws.String("FullyQualifiedDomainName"),
 			IPAddress:                aws.String("IPAddress"),
-			Port:                     aws.Long(1),
-			RequestInterval:          aws.Long(1),
+			Port:                     aws.Int64(1),
+			RequestInterval:          aws.Int64(1),
 			ResourcePath:             aws.String("ResourcePath"),
 			SearchString:             aws.String("SearchString"),
 		},
@@ -195,7 +195,7 @@ func ExampleRoute53_CreateHostedZone() {
 		DelegationSetID: aws.String("ResourceId"),
 		HostedZoneConfig: &route53.HostedZoneConfig{
 			Comment:     aws.String("ResourceDescription"),
-			PrivateZone: aws.Boolean(true),
+			PrivateZone: aws.Bool(true),
 		},
 		VPC: &route53.VPC{
 			VPCID:     aws.String("VPCId"),
@@ -869,11 +869,11 @@ func ExampleRoute53_UpdateHealthCheck() {
 
 	params := &route53.UpdateHealthCheckInput{
 		HealthCheckID:            aws.String("HealthCheckId"), // Required
-		FailureThreshold:         aws.Long(1),
+		FailureThreshold:         aws.Int64(1),
 		FullyQualifiedDomainName: aws.String("FullyQualifiedDomainName"),
-		HealthCheckVersion:       aws.Long(1),
+		HealthCheckVersion:       aws.Int64(1),
 		IPAddress:                aws.String("IPAddress"),
-		Port:                     aws.Long(1),
+		Port:                     aws.Int64(1),
 		ResourcePath:             aws.String("ResourcePath"),
 		SearchString:             aws.String("SearchString"),
 	}

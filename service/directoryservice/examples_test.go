@@ -252,7 +252,7 @@ func ExampleDirectoryService_DescribeDirectories() {
 			aws.String("DirectoryId"), // Required
 			// More values...
 		},
-		Limit:     aws.Long(1),
+		Limit:     aws.Int64(1),
 		NextToken: aws.String("NextToken"),
 	}
 	resp, err := svc.DescribeDirectories(params)
@@ -281,7 +281,7 @@ func ExampleDirectoryService_DescribeSnapshots() {
 
 	params := &directoryservice.DescribeSnapshotsInput{
 		DirectoryID: aws.String("DirectoryId"),
-		Limit:       aws.Long(1),
+		Limit:       aws.Int64(1),
 		NextToken:   aws.String("NextToken"),
 		SnapshotIDs: []*string{
 			aws.String("SnapshotId"), // Required
@@ -373,15 +373,15 @@ func ExampleDirectoryService_EnableRadius() {
 		RadiusSettings: &directoryservice.RadiusSettings{ // Required
 			AuthenticationProtocol: aws.String("RadiusAuthenticationProtocol"),
 			DisplayLabel:           aws.String("RadiusDisplayLabel"),
-			RadiusPort:             aws.Long(1),
-			RadiusRetries:          aws.Long(1),
+			RadiusPort:             aws.Int64(1),
+			RadiusRetries:          aws.Int64(1),
 			RadiusServers: []*string{
 				aws.String("Server"), // Required
 				// More values...
 			},
-			RadiusTimeout:   aws.Long(1),
+			RadiusTimeout:   aws.Int64(1),
 			SharedSecret:    aws.String("RadiusSharedSecret"),
-			UseSameUsername: aws.Boolean(true),
+			UseSameUsername: aws.Bool(true),
 		},
 	}
 	resp, err := svc.EnableRadius(params)
@@ -521,15 +521,15 @@ func ExampleDirectoryService_UpdateRadius() {
 		RadiusSettings: &directoryservice.RadiusSettings{ // Required
 			AuthenticationProtocol: aws.String("RadiusAuthenticationProtocol"),
 			DisplayLabel:           aws.String("RadiusDisplayLabel"),
-			RadiusPort:             aws.Long(1),
-			RadiusRetries:          aws.Long(1),
+			RadiusPort:             aws.Int64(1),
+			RadiusRetries:          aws.Int64(1),
 			RadiusServers: []*string{
 				aws.String("Server"), // Required
 				// More values...
 			},
-			RadiusTimeout:   aws.Long(1),
+			RadiusTimeout:   aws.Int64(1),
 			SharedSecret:    aws.String("RadiusSharedSecret"),
-			UseSameUsername: aws.Boolean(true),
+			UseSameUsername: aws.Bool(true),
 		},
 	}
 	resp, err := svc.UpdateRadius(params)

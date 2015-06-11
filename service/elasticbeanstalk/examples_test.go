@@ -105,7 +105,7 @@ func ExampleElasticBeanstalk_CreateApplicationVersion() {
 	params := &elasticbeanstalk.CreateApplicationVersionInput{
 		ApplicationName:       aws.String("ApplicationName"), // Required
 		VersionLabel:          aws.String("VersionLabel"),    // Required
-		AutoCreateApplication: aws.Boolean(true),
+		AutoCreateApplication: aws.Bool(true),
 		Description:           aws.String("Description"),
 		SourceBundle: &elasticbeanstalk.S3Location{
 			S3Bucket: aws.String("S3Bucket"),
@@ -269,7 +269,7 @@ func ExampleElasticBeanstalk_DeleteApplication() {
 
 	params := &elasticbeanstalk.DeleteApplicationInput{
 		ApplicationName:     aws.String("ApplicationName"), // Required
-		TerminateEnvByForce: aws.Boolean(true),
+		TerminateEnvByForce: aws.Bool(true),
 	}
 	resp, err := svc.DeleteApplication(params)
 
@@ -298,7 +298,7 @@ func ExampleElasticBeanstalk_DeleteApplicationVersion() {
 	params := &elasticbeanstalk.DeleteApplicationVersionInput{
 		ApplicationName:    aws.String("ApplicationName"), // Required
 		VersionLabel:       aws.String("VersionLabel"),    // Required
-		DeleteSourceBundle: aws.Boolean(true),
+		DeleteSourceBundle: aws.Bool(true),
 	}
 	resp, err := svc.DeleteApplicationVersion(params)
 
@@ -546,7 +546,7 @@ func ExampleElasticBeanstalk_DescribeEnvironments() {
 			aws.String("EnvironmentName"), // Required
 			// More values...
 		},
-		IncludeDeleted:        aws.Boolean(true),
+		IncludeDeleted:        aws.Bool(true),
 		IncludedDeletedBackTo: aws.Time(time.Now()),
 		VersionLabel:          aws.String("VersionLabel"),
 	}
@@ -579,7 +579,7 @@ func ExampleElasticBeanstalk_DescribeEvents() {
 		EndTime:         aws.Time(time.Now()),
 		EnvironmentID:   aws.String("EnvironmentId"),
 		EnvironmentName: aws.String("EnvironmentName"),
-		MaxRecords:      aws.Long(1),
+		MaxRecords:      aws.Int64(1),
 		NextToken:       aws.String("Token"),
 		RequestID:       aws.String("RequestId"),
 		Severity:        aws.String("EventSeverity"),
@@ -783,7 +783,7 @@ func ExampleElasticBeanstalk_TerminateEnvironment() {
 	params := &elasticbeanstalk.TerminateEnvironmentInput{
 		EnvironmentID:      aws.String("EnvironmentId"),
 		EnvironmentName:    aws.String("EnvironmentName"),
-		TerminateResources: aws.Boolean(true),
+		TerminateResources: aws.Bool(true),
 	}
 	resp, err := svc.TerminateEnvironment(params)
 

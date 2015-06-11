@@ -120,11 +120,11 @@ func ExampleELB_ConfigureHealthCheck() {
 
 	params := &elb.ConfigureHealthCheckInput{
 		HealthCheck: &elb.HealthCheck{ // Required
-			HealthyThreshold:   aws.Long(1),                     // Required
-			Interval:           aws.Long(1),                     // Required
+			HealthyThreshold:   aws.Int64(1),                    // Required
+			Interval:           aws.Int64(1),                    // Required
 			Target:             aws.String("HealthCheckTarget"), // Required
-			Timeout:            aws.Long(1),                     // Required
-			UnhealthyThreshold: aws.Long(1),                     // Required
+			Timeout:            aws.Int64(1),                    // Required
+			UnhealthyThreshold: aws.Int64(1),                    // Required
 		},
 		LoadBalancerName: aws.String("AccessPointName"), // Required
 	}
@@ -184,7 +184,7 @@ func ExampleELB_CreateLBCookieStickinessPolicy() {
 	params := &elb.CreateLBCookieStickinessPolicyInput{
 		LoadBalancerName:       aws.String("AccessPointName"), // Required
 		PolicyName:             aws.String("PolicyName"),      // Required
-		CookieExpirationPeriod: aws.Long(1),
+		CookieExpirationPeriod: aws.Int64(1),
 	}
 	resp, err := svc.CreateLBCookieStickinessPolicy(params)
 
@@ -213,8 +213,8 @@ func ExampleELB_CreateLoadBalancer() {
 	params := &elb.CreateLoadBalancerInput{
 		Listeners: []*elb.Listener{ // Required
 			{ // Required
-				InstancePort:     aws.Long(1),            // Required
-				LoadBalancerPort: aws.Long(1),            // Required
+				InstancePort:     aws.Int64(1),           // Required
+				LoadBalancerPort: aws.Int64(1),           // Required
 				Protocol:         aws.String("Protocol"), // Required
 				InstanceProtocol: aws.String("Protocol"),
 				SSLCertificateID: aws.String("SSLCertificateId"),
@@ -270,8 +270,8 @@ func ExampleELB_CreateLoadBalancerListeners() {
 	params := &elb.CreateLoadBalancerListenersInput{
 		Listeners: []*elb.Listener{ // Required
 			{ // Required
-				InstancePort:     aws.Long(1),            // Required
-				LoadBalancerPort: aws.Long(1),            // Required
+				InstancePort:     aws.Int64(1),           // Required
+				LoadBalancerPort: aws.Int64(1),           // Required
 				Protocol:         aws.String("Protocol"), // Required
 				InstanceProtocol: aws.String("Protocol"),
 				SSLCertificateID: aws.String("SSLCertificateId"),
@@ -370,7 +370,7 @@ func ExampleELB_DeleteLoadBalancerListeners() {
 	params := &elb.DeleteLoadBalancerListenersInput{
 		LoadBalancerName: aws.String("AccessPointName"), // Required
 		LoadBalancerPorts: []*int64{ // Required
-			aws.Long(1), // Required
+			aws.Int64(1), // Required
 			// More values...
 		},
 	}
@@ -586,7 +586,7 @@ func ExampleELB_DescribeLoadBalancers() {
 			// More values...
 		},
 		Marker:   aws.String("Marker"),
-		PageSize: aws.Long(1),
+		PageSize: aws.Int64(1),
 	}
 	resp, err := svc.DescribeLoadBalancers(params)
 
@@ -738,8 +738,8 @@ func ExampleELB_ModifyLoadBalancerAttributes() {
 	params := &elb.ModifyLoadBalancerAttributesInput{
 		LoadBalancerAttributes: &elb.LoadBalancerAttributes{ // Required
 			AccessLog: &elb.AccessLog{
-				Enabled:        aws.Boolean(true), // Required
-				EmitInterval:   aws.Long(1),
+				Enabled:        aws.Bool(true), // Required
+				EmitInterval:   aws.Int64(1),
 				S3BucketName:   aws.String("S3BucketName"),
 				S3BucketPrefix: aws.String("AccessLogPrefix"),
 			},
@@ -751,14 +751,14 @@ func ExampleELB_ModifyLoadBalancerAttributes() {
 				// More values...
 			},
 			ConnectionDraining: &elb.ConnectionDraining{
-				Enabled: aws.Boolean(true), // Required
-				Timeout: aws.Long(1),
+				Enabled: aws.Bool(true), // Required
+				Timeout: aws.Int64(1),
 			},
 			ConnectionSettings: &elb.ConnectionSettings{
-				IdleTimeout: aws.Long(1), // Required
+				IdleTimeout: aws.Int64(1), // Required
 			},
 			CrossZoneLoadBalancing: &elb.CrossZoneLoadBalancing{
-				Enabled: aws.Boolean(true), // Required
+				Enabled: aws.Bool(true), // Required
 			},
 		},
 		LoadBalancerName: aws.String("AccessPointName"), // Required
@@ -858,7 +858,7 @@ func ExampleELB_SetLoadBalancerListenerSSLCertificate() {
 
 	params := &elb.SetLoadBalancerListenerSSLCertificateInput{
 		LoadBalancerName: aws.String("AccessPointName"),  // Required
-		LoadBalancerPort: aws.Long(1),                    // Required
+		LoadBalancerPort: aws.Int64(1),                   // Required
 		SSLCertificateID: aws.String("SSLCertificateId"), // Required
 	}
 	resp, err := svc.SetLoadBalancerListenerSSLCertificate(params)
@@ -886,7 +886,7 @@ func ExampleELB_SetLoadBalancerPoliciesForBackendServer() {
 	svc := elb.New(nil)
 
 	params := &elb.SetLoadBalancerPoliciesForBackendServerInput{
-		InstancePort:     aws.Long(1),                   // Required
+		InstancePort:     aws.Int64(1),                  // Required
 		LoadBalancerName: aws.String("AccessPointName"), // Required
 		PolicyNames: []*string{ // Required
 			aws.String("PolicyName"), // Required
@@ -919,7 +919,7 @@ func ExampleELB_SetLoadBalancerPoliciesOfListener() {
 
 	params := &elb.SetLoadBalancerPoliciesOfListenerInput{
 		LoadBalancerName: aws.String("AccessPointName"), // Required
-		LoadBalancerPort: aws.Long(1),                   // Required
+		LoadBalancerPort: aws.Int64(1),                  // Required
 		PolicyNames: []*string{ // Required
 			aws.String("PolicyName"), // Required
 			// More values...

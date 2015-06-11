@@ -58,7 +58,7 @@ func ExampleSQS_ChangeMessageVisibility() {
 	params := &sqs.ChangeMessageVisibilityInput{
 		QueueURL:          aws.String("String"), // Required
 		ReceiptHandle:     aws.String("String"), // Required
-		VisibilityTimeout: aws.Long(1),          // Required
+		VisibilityTimeout: aws.Int64(1),         // Required
 	}
 	resp, err := svc.ChangeMessageVisibility(params)
 
@@ -89,7 +89,7 @@ func ExampleSQS_ChangeMessageVisibilityBatch() {
 			{ // Required
 				ID:                aws.String("String"), // Required
 				ReceiptHandle:     aws.String("String"), // Required
-				VisibilityTimeout: aws.Long(1),
+				VisibilityTimeout: aws.Int64(1),
 			},
 			// More values...
 		},
@@ -385,13 +385,13 @@ func ExampleSQS_ReceiveMessage() {
 			aws.String("QueueAttributeName"), // Required
 			// More values...
 		},
-		MaxNumberOfMessages: aws.Long(1),
+		MaxNumberOfMessages: aws.Int64(1),
 		MessageAttributeNames: []*string{
 			aws.String("MessageAttributeName"), // Required
 			// More values...
 		},
-		VisibilityTimeout: aws.Long(1),
-		WaitTimeSeconds:   aws.Long(1),
+		VisibilityTimeout: aws.Int64(1),
+		WaitTimeSeconds:   aws.Int64(1),
 	}
 	resp, err := svc.ReceiveMessage(params)
 
@@ -448,7 +448,7 @@ func ExampleSQS_SendMessage() {
 	params := &sqs.SendMessageInput{
 		MessageBody:  aws.String("String"), // Required
 		QueueURL:     aws.String("String"), // Required
-		DelaySeconds: aws.Long(1),
+		DelaySeconds: aws.Int64(1),
 		MessageAttributes: map[string]*sqs.MessageAttributeValue{
 			"Key": { // Required
 				DataType: aws.String("String"), // Required
@@ -495,7 +495,7 @@ func ExampleSQS_SendMessageBatch() {
 			{ // Required
 				ID:           aws.String("String"), // Required
 				MessageBody:  aws.String("String"), // Required
-				DelaySeconds: aws.Long(1),
+				DelaySeconds: aws.Int64(1),
 				MessageAttributes: map[string]*sqs.MessageAttributeValue{
 					"Key": { // Required
 						DataType: aws.String("String"), // Required

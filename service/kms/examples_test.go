@@ -367,7 +367,7 @@ func ExampleKMS_GenerateDataKey() {
 			// More values...
 		},
 		KeySpec:       aws.String("DataKeySpec"),
-		NumberOfBytes: aws.Long(1),
+		NumberOfBytes: aws.Int64(1),
 	}
 	resp, err := svc.GenerateDataKey(params)
 
@@ -404,7 +404,7 @@ func ExampleKMS_GenerateDataKeyWithoutPlaintext() {
 			// More values...
 		},
 		KeySpec:       aws.String("DataKeySpec"),
-		NumberOfBytes: aws.Long(1),
+		NumberOfBytes: aws.Int64(1),
 	}
 	resp, err := svc.GenerateDataKeyWithoutPlaintext(params)
 
@@ -431,7 +431,7 @@ func ExampleKMS_GenerateRandom() {
 	svc := kms.New(nil)
 
 	params := &kms.GenerateRandomInput{
-		NumberOfBytes: aws.Long(1),
+		NumberOfBytes: aws.Int64(1),
 	}
 	resp, err := svc.GenerateRandom(params)
 
@@ -513,7 +513,7 @@ func ExampleKMS_ListAliases() {
 	svc := kms.New(nil)
 
 	params := &kms.ListAliasesInput{
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("MarkerType"),
 	}
 	resp, err := svc.ListAliases(params)
@@ -542,7 +542,7 @@ func ExampleKMS_ListGrants() {
 
 	params := &kms.ListGrantsInput{
 		KeyID:  aws.String("KeyIdType"), // Required
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("MarkerType"),
 	}
 	resp, err := svc.ListGrants(params)
@@ -571,7 +571,7 @@ func ExampleKMS_ListKeyPolicies() {
 
 	params := &kms.ListKeyPoliciesInput{
 		KeyID:  aws.String("KeyIdType"), // Required
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("MarkerType"),
 	}
 	resp, err := svc.ListKeyPolicies(params)
@@ -599,7 +599,7 @@ func ExampleKMS_ListKeys() {
 	svc := kms.New(nil)
 
 	params := &kms.ListKeysInput{
-		Limit:  aws.Long(1),
+		Limit:  aws.Int64(1),
 		Marker: aws.String("MarkerType"),
 	}
 	resp, err := svc.ListKeys(params)

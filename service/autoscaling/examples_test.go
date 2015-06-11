@@ -113,15 +113,15 @@ func ExampleAutoScaling_CreateAutoScalingGroup() {
 
 	params := &autoscaling.CreateAutoScalingGroupInput{
 		AutoScalingGroupName: aws.String("XmlStringMaxLen255"), // Required
-		MaxSize:              aws.Long(1),                      // Required
-		MinSize:              aws.Long(1),                      // Required
+		MaxSize:              aws.Int64(1),                     // Required
+		MinSize:              aws.Int64(1),                     // Required
 		AvailabilityZones: []*string{
 			aws.String("XmlStringMaxLen255"), // Required
 			// More values...
 		},
-		DefaultCooldown:         aws.Long(1),
-		DesiredCapacity:         aws.Long(1),
-		HealthCheckGracePeriod:  aws.Long(1),
+		DefaultCooldown:         aws.Int64(1),
+		DesiredCapacity:         aws.Int64(1),
+		HealthCheckGracePeriod:  aws.Int64(1),
 		HealthCheckType:         aws.String("XmlStringMaxLen32"),
 		InstanceID:              aws.String("XmlStringMaxLen16"),
 		LaunchConfigurationName: aws.String("ResourceName"),
@@ -133,7 +133,7 @@ func ExampleAutoScaling_CreateAutoScalingGroup() {
 		Tags: []*autoscaling.Tag{
 			{ // Required
 				Key:               aws.String("TagKey"), // Required
-				PropagateAtLaunch: aws.Boolean(true),
+				PropagateAtLaunch: aws.Bool(true),
 				ResourceID:        aws.String("XmlString"),
 				ResourceType:      aws.String("XmlString"),
 				Value:             aws.String("TagValue"),
@@ -172,18 +172,18 @@ func ExampleAutoScaling_CreateLaunchConfiguration() {
 
 	params := &autoscaling.CreateLaunchConfigurationInput{
 		LaunchConfigurationName:  aws.String("XmlStringMaxLen255"), // Required
-		AssociatePublicIPAddress: aws.Boolean(true),
+		AssociatePublicIPAddress: aws.Bool(true),
 		BlockDeviceMappings: []*autoscaling.BlockDeviceMapping{
 			{ // Required
 				DeviceName: aws.String("XmlStringMaxLen255"), // Required
 				EBS: &autoscaling.EBS{
-					DeleteOnTermination: aws.Boolean(true),
-					IOPS:                aws.Long(1),
+					DeleteOnTermination: aws.Bool(true),
+					IOPS:                aws.Int64(1),
 					SnapshotID:          aws.String("XmlStringMaxLen255"),
-					VolumeSize:          aws.Long(1),
+					VolumeSize:          aws.Int64(1),
 					VolumeType:          aws.String("BlockDeviceEbsVolumeType"),
 				},
-				NoDevice:    aws.Boolean(true),
+				NoDevice:    aws.Bool(true),
 				VirtualName: aws.String("XmlStringMaxLen255"),
 			},
 			// More values...
@@ -193,12 +193,12 @@ func ExampleAutoScaling_CreateLaunchConfiguration() {
 			aws.String("XmlStringMaxLen255"), // Required
 			// More values...
 		},
-		EBSOptimized:       aws.Boolean(true),
+		EBSOptimized:       aws.Bool(true),
 		IAMInstanceProfile: aws.String("XmlStringMaxLen1600"),
 		ImageID:            aws.String("XmlStringMaxLen255"),
 		InstanceID:         aws.String("XmlStringMaxLen16"),
 		InstanceMonitoring: &autoscaling.InstanceMonitoring{
-			Enabled: aws.Boolean(true),
+			Enabled: aws.Bool(true),
 		},
 		InstanceType:     aws.String("XmlStringMaxLen255"),
 		KernelID:         aws.String("XmlStringMaxLen255"),
@@ -240,7 +240,7 @@ func ExampleAutoScaling_CreateOrUpdateTags() {
 		Tags: []*autoscaling.Tag{ // Required
 			{ // Required
 				Key:               aws.String("TagKey"), // Required
-				PropagateAtLaunch: aws.Boolean(true),
+				PropagateAtLaunch: aws.Bool(true),
 				ResourceID:        aws.String("XmlString"),
 				ResourceType:      aws.String("XmlString"),
 				Value:             aws.String("TagValue"),
@@ -274,7 +274,7 @@ func ExampleAutoScaling_DeleteAutoScalingGroup() {
 
 	params := &autoscaling.DeleteAutoScalingGroupInput{
 		AutoScalingGroupName: aws.String("ResourceName"), // Required
-		ForceDelete:          aws.Boolean(true),
+		ForceDelete:          aws.Bool(true),
 	}
 	resp, err := svc.DeleteAutoScalingGroup(params)
 
@@ -443,7 +443,7 @@ func ExampleAutoScaling_DeleteTags() {
 		Tags: []*autoscaling.Tag{ // Required
 			{ // Required
 				Key:               aws.String("TagKey"), // Required
-				PropagateAtLaunch: aws.Boolean(true),
+				PropagateAtLaunch: aws.Bool(true),
 				ResourceID:        aws.String("XmlString"),
 				ResourceType:      aws.String("XmlString"),
 				Value:             aws.String("TagValue"),
@@ -530,7 +530,7 @@ func ExampleAutoScaling_DescribeAutoScalingGroups() {
 			aws.String("ResourceName"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeAutoScalingGroups(params)
@@ -562,7 +562,7 @@ func ExampleAutoScaling_DescribeAutoScalingInstances() {
 			aws.String("XmlStringMaxLen16"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeAutoScalingInstances(params)
@@ -619,7 +619,7 @@ func ExampleAutoScaling_DescribeLaunchConfigurations() {
 			aws.String("ResourceName"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeLaunchConfigurations(params)
@@ -704,7 +704,7 @@ func ExampleAutoScaling_DescribeLoadBalancers() {
 
 	params := &autoscaling.DescribeLoadBalancersInput{
 		AutoScalingGroupName: aws.String("ResourceName"), // Required
-		MaxRecords:           aws.Long(1),
+		MaxRecords:           aws.Int64(1),
 		NextToken:            aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeLoadBalancers(params)
@@ -761,7 +761,7 @@ func ExampleAutoScaling_DescribeNotificationConfigurations() {
 			aws.String("ResourceName"), // Required
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeNotificationConfigurations(params)
@@ -790,7 +790,7 @@ func ExampleAutoScaling_DescribePolicies() {
 
 	params := &autoscaling.DescribePoliciesInput{
 		AutoScalingGroupName: aws.String("ResourceName"),
-		MaxRecords:           aws.Long(1),
+		MaxRecords:           aws.Int64(1),
 		NextToken:            aws.String("XmlString"),
 		PolicyNames: []*string{
 			aws.String("ResourceName"), // Required
@@ -831,7 +831,7 @@ func ExampleAutoScaling_DescribeScalingActivities() {
 			// More values...
 		},
 		AutoScalingGroupName: aws.String("ResourceName"),
-		MaxRecords:           aws.Long(1),
+		MaxRecords:           aws.Int64(1),
 		NextToken:            aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeScalingActivities(params)
@@ -886,7 +886,7 @@ func ExampleAutoScaling_DescribeScheduledActions() {
 	params := &autoscaling.DescribeScheduledActionsInput{
 		AutoScalingGroupName: aws.String("ResourceName"),
 		EndTime:              aws.Time(time.Now()),
-		MaxRecords:           aws.Long(1),
+		MaxRecords:           aws.Int64(1),
 		NextToken:            aws.String("XmlString"),
 		ScheduledActionNames: []*string{
 			aws.String("ResourceName"), // Required
@@ -929,7 +929,7 @@ func ExampleAutoScaling_DescribeTags() {
 			},
 			// More values...
 		},
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		NextToken:  aws.String("XmlString"),
 	}
 	resp, err := svc.DescribeTags(params)
@@ -983,7 +983,7 @@ func ExampleAutoScaling_DetachInstances() {
 
 	params := &autoscaling.DetachInstancesInput{
 		AutoScalingGroupName:           aws.String("ResourceName"), // Required
-		ShouldDecrementDesiredCapacity: aws.Boolean(true),          // Required
+		ShouldDecrementDesiredCapacity: aws.Bool(true),             // Required
 		InstanceIDs: []*string{
 			aws.String("XmlStringMaxLen16"), // Required
 			// More values...
@@ -1109,7 +1109,7 @@ func ExampleAutoScaling_EnterStandby() {
 
 	params := &autoscaling.EnterStandbyInput{
 		AutoScalingGroupName:           aws.String("ResourceName"), // Required
-		ShouldDecrementDesiredCapacity: aws.Boolean(true),          // Required
+		ShouldDecrementDesiredCapacity: aws.Bool(true),             // Required
 		InstanceIDs: []*string{
 			aws.String("XmlStringMaxLen16"), // Required
 			// More values...
@@ -1142,9 +1142,9 @@ func ExampleAutoScaling_ExecutePolicy() {
 	params := &autoscaling.ExecutePolicyInput{
 		PolicyName:           aws.String("ResourceName"), // Required
 		AutoScalingGroupName: aws.String("ResourceName"),
-		BreachThreshold:      aws.Double(1.0),
-		HonorCooldown:        aws.Boolean(true),
-		MetricValue:          aws.Double(1.0),
+		BreachThreshold:      aws.Float64(1.0),
+		HonorCooldown:        aws.Bool(true),
+		MetricValue:          aws.Float64(1.0),
 	}
 	resp, err := svc.ExecutePolicy(params)
 
@@ -1205,7 +1205,7 @@ func ExampleAutoScaling_PutLifecycleHook() {
 		AutoScalingGroupName:  aws.String("ResourceName"),         // Required
 		LifecycleHookName:     aws.String("AsciiStringMaxLen255"), // Required
 		DefaultResult:         aws.String("LifecycleActionResult"),
-		HeartbeatTimeout:      aws.Long(1),
+		HeartbeatTimeout:      aws.Int64(1),
 		LifecycleTransition:   aws.String("LifecycleTransition"),
 		NotificationMetadata:  aws.String("XmlStringMaxLen1023"),
 		NotificationTargetARN: aws.String("ResourceName"),
@@ -1271,18 +1271,18 @@ func ExampleAutoScaling_PutScalingPolicy() {
 		AdjustmentType:          aws.String("XmlStringMaxLen255"), // Required
 		AutoScalingGroupName:    aws.String("ResourceName"),       // Required
 		PolicyName:              aws.String("XmlStringMaxLen255"), // Required
-		Cooldown:                aws.Long(1),
-		EstimatedInstanceWarmup: aws.Long(1),
+		Cooldown:                aws.Int64(1),
+		EstimatedInstanceWarmup: aws.Int64(1),
 		MetricAggregationType:   aws.String("XmlStringMaxLen32"),
-		MinAdjustmentMagnitude:  aws.Long(1),
-		MinAdjustmentStep:       aws.Long(1),
+		MinAdjustmentMagnitude:  aws.Int64(1),
+		MinAdjustmentStep:       aws.Int64(1),
 		PolicyType:              aws.String("XmlStringMaxLen64"),
-		ScalingAdjustment:       aws.Long(1),
+		ScalingAdjustment:       aws.Int64(1),
 		StepAdjustments: []*autoscaling.StepAdjustment{
 			{ // Required
-				ScalingAdjustment:        aws.Long(1), // Required
-				MetricIntervalLowerBound: aws.Double(1.0),
-				MetricIntervalUpperBound: aws.Double(1.0),
+				ScalingAdjustment:        aws.Int64(1), // Required
+				MetricIntervalLowerBound: aws.Float64(1.0),
+				MetricIntervalUpperBound: aws.Float64(1.0),
 			},
 			// More values...
 		},
@@ -1314,10 +1314,10 @@ func ExampleAutoScaling_PutScheduledUpdateGroupAction() {
 	params := &autoscaling.PutScheduledUpdateGroupActionInput{
 		AutoScalingGroupName: aws.String("ResourceName"),       // Required
 		ScheduledActionName:  aws.String("XmlStringMaxLen255"), // Required
-		DesiredCapacity:      aws.Long(1),
+		DesiredCapacity:      aws.Int64(1),
 		EndTime:              aws.Time(time.Now()),
-		MaxSize:              aws.Long(1),
-		MinSize:              aws.Long(1),
+		MaxSize:              aws.Int64(1),
+		MinSize:              aws.Int64(1),
 		Recurrence:           aws.String("XmlStringMaxLen255"),
 		StartTime:            aws.Time(time.Now()),
 		Time:                 aws.Time(time.Now()),
@@ -1408,8 +1408,8 @@ func ExampleAutoScaling_SetDesiredCapacity() {
 
 	params := &autoscaling.SetDesiredCapacityInput{
 		AutoScalingGroupName: aws.String("ResourceName"), // Required
-		DesiredCapacity:      aws.Long(1),                // Required
-		HonorCooldown:        aws.Boolean(true),
+		DesiredCapacity:      aws.Int64(1),               // Required
+		HonorCooldown:        aws.Bool(true),
 	}
 	resp, err := svc.SetDesiredCapacity(params)
 
@@ -1438,7 +1438,7 @@ func ExampleAutoScaling_SetInstanceHealth() {
 	params := &autoscaling.SetInstanceHealthInput{
 		HealthStatus:             aws.String("XmlStringMaxLen32"), // Required
 		InstanceID:               aws.String("XmlStringMaxLen16"), // Required
-		ShouldRespectGracePeriod: aws.Boolean(true),
+		ShouldRespectGracePeriod: aws.Bool(true),
 	}
 	resp, err := svc.SetInstanceHealth(params)
 
@@ -1497,7 +1497,7 @@ func ExampleAutoScaling_TerminateInstanceInAutoScalingGroup() {
 
 	params := &autoscaling.TerminateInstanceInAutoScalingGroupInput{
 		InstanceID:                     aws.String("XmlStringMaxLen16"), // Required
-		ShouldDecrementDesiredCapacity: aws.Boolean(true),               // Required
+		ShouldDecrementDesiredCapacity: aws.Bool(true),                  // Required
 	}
 	resp, err := svc.TerminateInstanceInAutoScalingGroup(params)
 
@@ -1529,13 +1529,13 @@ func ExampleAutoScaling_UpdateAutoScalingGroup() {
 			aws.String("XmlStringMaxLen255"), // Required
 			// More values...
 		},
-		DefaultCooldown:         aws.Long(1),
-		DesiredCapacity:         aws.Long(1),
-		HealthCheckGracePeriod:  aws.Long(1),
+		DefaultCooldown:         aws.Int64(1),
+		DesiredCapacity:         aws.Int64(1),
+		HealthCheckGracePeriod:  aws.Int64(1),
 		HealthCheckType:         aws.String("XmlStringMaxLen32"),
 		LaunchConfigurationName: aws.String("ResourceName"),
-		MaxSize:                 aws.Long(1),
-		MinSize:                 aws.Long(1),
+		MaxSize:                 aws.Int64(1),
+		MinSize:                 aws.Int64(1),
 		PlacementGroup:          aws.String("XmlStringMaxLen255"),
 		TerminationPolicies: []*string{
 			aws.String("XmlStringMaxLen1600"), // Required

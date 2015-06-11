@@ -199,7 +199,7 @@ func ExampleConfigService_GetResourceConfigHistory() {
 		ChronologicalOrder: aws.String("ChronologicalOrder"),
 		EarlierTime:        aws.Time(time.Now()),
 		LaterTime:          aws.Time(time.Now()),
-		Limit:              aws.Long(1),
+		Limit:              aws.Int64(1),
 		NextToken:          aws.String("NextToken"),
 	}
 	resp, err := svc.GetResourceConfigHistory(params)
@@ -230,7 +230,7 @@ func ExampleConfigService_PutConfigurationRecorder() {
 		ConfigurationRecorder: &configservice.ConfigurationRecorder{ // Required
 			Name: aws.String("RecorderName"),
 			RecordingGroup: &configservice.RecordingGroup{
-				AllSupported: aws.Boolean(true),
+				AllSupported: aws.Bool(true),
 				ResourceTypes: []*string{
 					aws.String("ResourceType"), // Required
 					// More values...

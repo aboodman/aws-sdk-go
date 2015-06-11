@@ -249,15 +249,15 @@ func ExampleRDS_CreateDBInstance() {
 	svc := rds.New(nil)
 
 	params := &rds.CreateDBInstanceInput{
-		AllocatedStorage:        aws.Long(1),          // Required
+		AllocatedStorage:        aws.Int64(1),         // Required
 		DBInstanceClass:         aws.String("String"), // Required
 		DBInstanceIdentifier:    aws.String("String"), // Required
 		Engine:                  aws.String("String"), // Required
 		MasterUserPassword:      aws.String("String"), // Required
 		MasterUsername:          aws.String("String"), // Required
-		AutoMinorVersionUpgrade: aws.Boolean(true),
+		AutoMinorVersionUpgrade: aws.Bool(true),
 		AvailabilityZone:        aws.String("String"),
-		BackupRetentionPeriod:   aws.Long(1),
+		BackupRetentionPeriod:   aws.Int64(1),
 		CharacterSetName:        aws.String("String"),
 		DBName:                  aws.String("String"),
 		DBParameterGroupName:    aws.String("String"),
@@ -267,16 +267,16 @@ func ExampleRDS_CreateDBInstance() {
 		},
 		DBSubnetGroupName: aws.String("String"),
 		EngineVersion:     aws.String("String"),
-		IOPS:              aws.Long(1),
+		IOPS:              aws.Int64(1),
 		KMSKeyID:          aws.String("String"),
 		LicenseModel:      aws.String("String"),
-		MultiAZ:           aws.Boolean(true),
+		MultiAZ:           aws.Bool(true),
 		OptionGroupName:   aws.String("String"),
-		Port:              aws.Long(1),
+		Port:              aws.Int64(1),
 		PreferredBackupWindow:      aws.String("String"),
 		PreferredMaintenanceWindow: aws.String("String"),
-		PubliclyAccessible:         aws.Boolean(true),
-		StorageEncrypted:           aws.Boolean(true),
+		PubliclyAccessible:         aws.Bool(true),
+		StorageEncrypted:           aws.Bool(true),
 		StorageType:                aws.String("String"),
 		TDECredentialARN:           aws.String("String"),
 		TDECredentialPassword:      aws.String("String"),
@@ -319,14 +319,14 @@ func ExampleRDS_CreateDBInstanceReadReplica() {
 	params := &rds.CreateDBInstanceReadReplicaInput{
 		DBInstanceIdentifier:       aws.String("String"), // Required
 		SourceDBInstanceIdentifier: aws.String("String"), // Required
-		AutoMinorVersionUpgrade:    aws.Boolean(true),
+		AutoMinorVersionUpgrade:    aws.Bool(true),
 		AvailabilityZone:           aws.String("String"),
 		DBInstanceClass:            aws.String("String"),
 		DBSubnetGroupName:          aws.String("String"),
-		IOPS:                       aws.Long(1),
+		IOPS:                       aws.Int64(1),
 		OptionGroupName:            aws.String("String"),
-		Port:                       aws.Long(1),
-		PubliclyAccessible:         aws.Boolean(true),
+		Port:                       aws.Int64(1),
+		PubliclyAccessible:         aws.Bool(true),
 		StorageType:                aws.String("String"),
 		Tags: []*rds.Tag{
 			{ // Required
@@ -508,7 +508,7 @@ func ExampleRDS_CreateEventSubscription() {
 	params := &rds.CreateEventSubscriptionInput{
 		SNSTopicARN:      aws.String("String"), // Required
 		SubscriptionName: aws.String("String"), // Required
-		Enabled:          aws.Boolean(true),
+		Enabled:          aws.Bool(true),
 		EventCategories: []*string{
 			aws.String("String"), // Required
 			// More values...
@@ -590,7 +590,7 @@ func ExampleRDS_DeleteDBInstance() {
 	params := &rds.DeleteDBInstanceInput{
 		DBInstanceIdentifier:      aws.String("String"), // Required
 		FinalDBSnapshotIdentifier: aws.String("String"),
-		SkipFinalSnapshot:         aws.Boolean(true),
+		SkipFinalSnapshot:         aws.Bool(true),
 	}
 	resp, err := svc.DeleteDBInstance(params)
 
@@ -816,7 +816,7 @@ func ExampleRDS_DescribeCertificates() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeCertificates(params)
 
@@ -844,7 +844,7 @@ func ExampleRDS_DescribeDBEngineVersions() {
 
 	params := &rds.DescribeDBEngineVersionsInput{
 		DBParameterGroupFamily: aws.String("String"),
-		DefaultOnly:            aws.Boolean(true),
+		DefaultOnly:            aws.Bool(true),
 		Engine:                 aws.String("String"),
 		EngineVersion:          aws.String("String"),
 		Filters: []*rds.Filter{
@@ -857,9 +857,9 @@ func ExampleRDS_DescribeDBEngineVersions() {
 			},
 			// More values...
 		},
-		ListSupportedCharacterSets: aws.Boolean(true),
+		ListSupportedCharacterSets: aws.Bool(true),
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBEngineVersions(params)
 
@@ -898,7 +898,7 @@ func ExampleRDS_DescribeDBInstances() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBInstances(params)
 
@@ -926,8 +926,8 @@ func ExampleRDS_DescribeDBLogFiles() {
 
 	params := &rds.DescribeDBLogFilesInput{
 		DBInstanceIdentifier: aws.String("String"), // Required
-		FileLastWritten:      aws.Long(1),
-		FileSize:             aws.Long(1),
+		FileLastWritten:      aws.Int64(1),
+		FileSize:             aws.Int64(1),
 		FilenameContains:     aws.String("String"),
 		Filters: []*rds.Filter{
 			{ // Required
@@ -940,7 +940,7 @@ func ExampleRDS_DescribeDBLogFiles() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBLogFiles(params)
 
@@ -979,7 +979,7 @@ func ExampleRDS_DescribeDBParameterGroups() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBParameterGroups(params)
 
@@ -1018,7 +1018,7 @@ func ExampleRDS_DescribeDBParameters() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 		Source:     aws.String("String"),
 	}
 	resp, err := svc.DescribeDBParameters(params)
@@ -1058,7 +1058,7 @@ func ExampleRDS_DescribeDBSecurityGroups() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBSecurityGroups(params)
 
@@ -1098,7 +1098,7 @@ func ExampleRDS_DescribeDBSnapshots() {
 			// More values...
 		},
 		Marker:       aws.String("String"),
-		MaxRecords:   aws.Long(1),
+		MaxRecords:   aws.Int64(1),
 		SnapshotType: aws.String("String"),
 	}
 	resp, err := svc.DescribeDBSnapshots(params)
@@ -1138,7 +1138,7 @@ func ExampleRDS_DescribeDBSubnetGroups() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeDBSubnetGroups(params)
 
@@ -1177,7 +1177,7 @@ func ExampleRDS_DescribeEngineDefaultParameters() {
 			// More values...
 		},
 		Marker:     aws.String("String"),
-		MaxRecords: aws.Long(1),
+		MaxRecords: aws.Int64(1),
 	}
 	resp, err := svc.DescribeEngineDefaultParameters(params)
 
@@ -1252,7 +1252,7 @@ func ExampleRDS_DescribeEventSubscriptions() {
 			// More values...
 		},
 		Marker:           aws.String("String"),
-		MaxRecords:       aws.Long(1),
+		MaxRecords:       aws.Int64(1),
 		SubscriptionName: aws.String("String"),
 	}
 	resp, err := svc.DescribeEventSubscriptions(params)
@@ -1280,7 +1280,7 @@ func ExampleRDS_DescribeEvents() {
 	svc := rds.New(nil)
 
 	params := &rds.DescribeEventsInput{
-		Duration: aws.Long(1),
+		Duration: aws.Int64(1),
 		EndTime:  aws.Time(time.Now()),
 		EventCategories: []*string{
 			aws.String("String"), // Required
@@ -1297,7 +1297,7 @@ func ExampleRDS_DescribeEvents() {
 			// More values...
 		},
 		Marker:           aws.String("String"),
-		MaxRecords:       aws.Long(1),
+		MaxRecords:       aws.Int64(1),
 		SourceIdentifier: aws.String("String"),
 		SourceType:       aws.String("SourceType"),
 		StartTime:        aws.Time(time.Now()),
@@ -1340,7 +1340,7 @@ func ExampleRDS_DescribeOptionGroupOptions() {
 		},
 		MajorEngineVersion: aws.String("String"),
 		Marker:             aws.String("String"),
-		MaxRecords:         aws.Long(1),
+		MaxRecords:         aws.Int64(1),
 	}
 	resp, err := svc.DescribeOptionGroupOptions(params)
 
@@ -1380,7 +1380,7 @@ func ExampleRDS_DescribeOptionGroups() {
 		},
 		MajorEngineVersion: aws.String("String"),
 		Marker:             aws.String("String"),
-		MaxRecords:         aws.Long(1),
+		MaxRecords:         aws.Int64(1),
 		OptionGroupName:    aws.String("String"),
 	}
 	resp, err := svc.DescribeOptionGroups(params)
@@ -1423,8 +1423,8 @@ func ExampleRDS_DescribeOrderableDBInstanceOptions() {
 		},
 		LicenseModel: aws.String("String"),
 		Marker:       aws.String("String"),
-		MaxRecords:   aws.Long(1),
-		VPC:          aws.Boolean(true),
+		MaxRecords:   aws.Int64(1),
+		VPC:          aws.Bool(true),
 	}
 	resp, err := svc.DescribeOrderableDBInstanceOptions(params)
 
@@ -1462,7 +1462,7 @@ func ExampleRDS_DescribePendingMaintenanceActions() {
 			// More values...
 		},
 		Marker:             aws.String("String"),
-		MaxRecords:         aws.Long(1),
+		MaxRecords:         aws.Int64(1),
 		ResourceIdentifier: aws.String("String"),
 	}
 	resp, err := svc.DescribePendingMaintenanceActions(params)
@@ -1503,8 +1503,8 @@ func ExampleRDS_DescribeReservedDBInstances() {
 			// More values...
 		},
 		Marker:                        aws.String("String"),
-		MaxRecords:                    aws.Long(1),
-		MultiAZ:                       aws.Boolean(true),
+		MaxRecords:                    aws.Int64(1),
+		MultiAZ:                       aws.Bool(true),
 		OfferingType:                  aws.String("String"),
 		ProductDescription:            aws.String("String"),
 		ReservedDBInstanceID:          aws.String("String"),
@@ -1548,8 +1548,8 @@ func ExampleRDS_DescribeReservedDBInstancesOfferings() {
 			// More values...
 		},
 		Marker:                        aws.String("String"),
-		MaxRecords:                    aws.Long(1),
-		MultiAZ:                       aws.Boolean(true),
+		MaxRecords:                    aws.Int64(1),
+		MultiAZ:                       aws.Bool(true),
 		OfferingType:                  aws.String("String"),
 		ProductDescription:            aws.String("String"),
 		ReservedDBInstancesOfferingID: aws.String("String"),
@@ -1582,7 +1582,7 @@ func ExampleRDS_DownloadDBLogFilePortion() {
 		DBInstanceIdentifier: aws.String("String"), // Required
 		LogFileName:          aws.String("String"), // Required
 		Marker:               aws.String("String"),
-		NumberOfLines:        aws.Long(1),
+		NumberOfLines:        aws.Int64(1),
 	}
 	resp, err := svc.DownloadDBLogFilePortion(params)
 
@@ -1647,11 +1647,11 @@ func ExampleRDS_ModifyDBInstance() {
 
 	params := &rds.ModifyDBInstanceInput{
 		DBInstanceIdentifier:     aws.String("String"), // Required
-		AllocatedStorage:         aws.Long(1),
-		AllowMajorVersionUpgrade: aws.Boolean(true),
-		ApplyImmediately:         aws.Boolean(true),
-		AutoMinorVersionUpgrade:  aws.Boolean(true),
-		BackupRetentionPeriod:    aws.Long(1),
+		AllocatedStorage:         aws.Int64(1),
+		AllowMajorVersionUpgrade: aws.Bool(true),
+		ApplyImmediately:         aws.Bool(true),
+		AutoMinorVersionUpgrade:  aws.Bool(true),
+		BackupRetentionPeriod:    aws.Int64(1),
 		CACertificateIdentifier:  aws.String("String"),
 		DBInstanceClass:          aws.String("String"),
 		DBParameterGroupName:     aws.String("String"),
@@ -1660,9 +1660,9 @@ func ExampleRDS_ModifyDBInstance() {
 			// More values...
 		},
 		EngineVersion:              aws.String("String"),
-		IOPS:                       aws.Long(1),
+		IOPS:                       aws.Int64(1),
 		MasterUserPassword:         aws.String("String"),
-		MultiAZ:                    aws.Boolean(true),
+		MultiAZ:                    aws.Bool(true),
 		NewDBInstanceIdentifier:    aws.String("String"),
 		OptionGroupName:            aws.String("String"),
 		PreferredBackupWindow:      aws.String("String"),
@@ -1708,7 +1708,7 @@ func ExampleRDS_ModifyDBParameterGroup() {
 				ApplyType:            aws.String("String"),
 				DataType:             aws.String("String"),
 				Description:          aws.String("String"),
-				IsModifiable:         aws.Boolean(true),
+				IsModifiable:         aws.Bool(true),
 				MinimumEngineVersion: aws.String("String"),
 				ParameterName:        aws.String("String"),
 				ParameterValue:       aws.String("String"),
@@ -1775,7 +1775,7 @@ func ExampleRDS_ModifyEventSubscription() {
 
 	params := &rds.ModifyEventSubscriptionInput{
 		SubscriptionName: aws.String("String"), // Required
-		Enabled:          aws.Boolean(true),
+		Enabled:          aws.Bool(true),
 		EventCategories: []*string{
 			aws.String("String"), // Required
 			// More values...
@@ -1809,7 +1809,7 @@ func ExampleRDS_ModifyOptionGroup() {
 
 	params := &rds.ModifyOptionGroupInput{
 		OptionGroupName:  aws.String("String"), // Required
-		ApplyImmediately: aws.Boolean(true),
+		ApplyImmediately: aws.Bool(true),
 		OptionsToInclude: []*rds.OptionConfiguration{
 			{ // Required
 				OptionName: aws.String("String"), // Required
@@ -1824,14 +1824,14 @@ func ExampleRDS_ModifyOptionGroup() {
 						DataType:      aws.String("String"),
 						DefaultValue:  aws.String("String"),
 						Description:   aws.String("String"),
-						IsCollection:  aws.Boolean(true),
-						IsModifiable:  aws.Boolean(true),
+						IsCollection:  aws.Bool(true),
+						IsModifiable:  aws.Bool(true),
 						Name:          aws.String("String"),
 						Value:         aws.String("String"),
 					},
 					// More values...
 				},
-				Port: aws.Long(1),
+				Port: aws.Int64(1),
 				VPCSecurityGroupMemberships: []*string{
 					aws.String("String"), // Required
 					// More values...
@@ -1870,7 +1870,7 @@ func ExampleRDS_PromoteReadReplica() {
 
 	params := &rds.PromoteReadReplicaInput{
 		DBInstanceIdentifier:  aws.String("String"), // Required
-		BackupRetentionPeriod: aws.Long(1),
+		BackupRetentionPeriod: aws.Int64(1),
 		PreferredBackupWindow: aws.String("String"),
 	}
 	resp, err := svc.PromoteReadReplica(params)
@@ -1899,7 +1899,7 @@ func ExampleRDS_PurchaseReservedDBInstancesOffering() {
 
 	params := &rds.PurchaseReservedDBInstancesOfferingInput{
 		ReservedDBInstancesOfferingID: aws.String("String"), // Required
-		DBInstanceCount:               aws.Long(1),
+		DBInstanceCount:               aws.Int64(1),
 		ReservedDBInstanceID:          aws.String("String"),
 		Tags: []*rds.Tag{
 			{ // Required
@@ -1935,7 +1935,7 @@ func ExampleRDS_RebootDBInstance() {
 
 	params := &rds.RebootDBInstanceInput{
 		DBInstanceIdentifier: aws.String("String"), // Required
-		ForceFailover:        aws.Boolean(true),
+		ForceFailover:        aws.Bool(true),
 	}
 	resp, err := svc.RebootDBInstance(params)
 
@@ -2029,7 +2029,7 @@ func ExampleRDS_ResetDBParameterGroup() {
 				ApplyType:            aws.String("String"),
 				DataType:             aws.String("String"),
 				Description:          aws.String("String"),
-				IsModifiable:         aws.Boolean(true),
+				IsModifiable:         aws.Bool(true),
 				MinimumEngineVersion: aws.String("String"),
 				ParameterName:        aws.String("String"),
 				ParameterValue:       aws.String("String"),
@@ -2037,7 +2037,7 @@ func ExampleRDS_ResetDBParameterGroup() {
 			},
 			// More values...
 		},
-		ResetAllParameters: aws.Boolean(true),
+		ResetAllParameters: aws.Bool(true),
 	}
 	resp, err := svc.ResetDBParameterGroup(params)
 
@@ -2066,18 +2066,18 @@ func ExampleRDS_RestoreDBInstanceFromDBSnapshot() {
 	params := &rds.RestoreDBInstanceFromDBSnapshotInput{
 		DBInstanceIdentifier:    aws.String("String"), // Required
 		DBSnapshotIdentifier:    aws.String("String"), // Required
-		AutoMinorVersionUpgrade: aws.Boolean(true),
+		AutoMinorVersionUpgrade: aws.Bool(true),
 		AvailabilityZone:        aws.String("String"),
 		DBInstanceClass:         aws.String("String"),
 		DBName:                  aws.String("String"),
 		DBSubnetGroupName:       aws.String("String"),
 		Engine:                  aws.String("String"),
-		IOPS:                    aws.Long(1),
+		IOPS:                    aws.Int64(1),
 		LicenseModel:            aws.String("String"),
-		MultiAZ:                 aws.Boolean(true),
+		MultiAZ:                 aws.Bool(true),
 		OptionGroupName:         aws.String("String"),
-		Port:                    aws.Long(1),
-		PubliclyAccessible:      aws.Boolean(true),
+		Port:                    aws.Int64(1),
+		PubliclyAccessible:      aws.Bool(true),
 		StorageType:             aws.String("String"),
 		TDECredentialARN:        aws.String("String"),
 		TDECredentialPassword:   aws.String("String"),
@@ -2116,18 +2116,18 @@ func ExampleRDS_RestoreDBInstanceToPointInTime() {
 	params := &rds.RestoreDBInstanceToPointInTimeInput{
 		SourceDBInstanceIdentifier: aws.String("String"), // Required
 		TargetDBInstanceIdentifier: aws.String("String"), // Required
-		AutoMinorVersionUpgrade:    aws.Boolean(true),
+		AutoMinorVersionUpgrade:    aws.Bool(true),
 		AvailabilityZone:           aws.String("String"),
 		DBInstanceClass:            aws.String("String"),
 		DBName:                     aws.String("String"),
 		DBSubnetGroupName:          aws.String("String"),
 		Engine:                     aws.String("String"),
-		IOPS:                       aws.Long(1),
+		IOPS:                       aws.Int64(1),
 		LicenseModel:               aws.String("String"),
-		MultiAZ:                    aws.Boolean(true),
+		MultiAZ:                    aws.Bool(true),
 		OptionGroupName:            aws.String("String"),
-		Port:                       aws.Long(1),
-		PubliclyAccessible:         aws.Boolean(true),
+		Port:                       aws.Int64(1),
+		PubliclyAccessible:         aws.Bool(true),
 		RestoreTime:                aws.Time(time.Now()),
 		StorageType:                aws.String("String"),
 		TDECredentialARN:           aws.String("String"),
@@ -2139,7 +2139,7 @@ func ExampleRDS_RestoreDBInstanceToPointInTime() {
 			},
 			// More values...
 		},
-		UseLatestRestorableTime: aws.Boolean(true),
+		UseLatestRestorableTime: aws.Bool(true),
 	}
 	resp, err := svc.RestoreDBInstanceToPointInTime(params)
 

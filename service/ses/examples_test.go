@@ -274,7 +274,7 @@ func ExampleSES_ListIdentities() {
 
 	params := &ses.ListIdentitiesInput{
 		IdentityType: aws.String("IdentityType"),
-		MaxItems:     aws.Long(1),
+		MaxItems:     aws.Int64(1),
 		NextToken:    aws.String("NextToken"),
 	}
 	resp, err := svc.ListIdentities(params)
@@ -484,7 +484,7 @@ func ExampleSES_SetIdentityDKIMEnabled() {
 	svc := ses.New(nil)
 
 	params := &ses.SetIdentityDKIMEnabledInput{
-		DKIMEnabled: aws.Boolean(true),      // Required
+		DKIMEnabled: aws.Bool(true),         // Required
 		Identity:    aws.String("Identity"), // Required
 	}
 	resp, err := svc.SetIdentityDKIMEnabled(params)
@@ -512,7 +512,7 @@ func ExampleSES_SetIdentityFeedbackForwardingEnabled() {
 	svc := ses.New(nil)
 
 	params := &ses.SetIdentityFeedbackForwardingEnabledInput{
-		ForwardingEnabled: aws.Boolean(true),      // Required
+		ForwardingEnabled: aws.Bool(true),         // Required
 		Identity:          aws.String("Identity"), // Required
 	}
 	resp, err := svc.SetIdentityFeedbackForwardingEnabled(params)

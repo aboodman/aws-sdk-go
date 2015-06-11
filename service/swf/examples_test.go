@@ -383,9 +383,9 @@ func ExampleSWF_GetWorkflowExecutionHistory() {
 			RunID:      aws.String("RunId"),      // Required
 			WorkflowID: aws.String("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
+		MaximumPageSize: aws.Int64(1),
 		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		ReverseOrder:    aws.Bool(true),
 	}
 	resp, err := svc.GetWorkflowExecutionHistory(params)
 
@@ -414,10 +414,10 @@ func ExampleSWF_ListActivityTypes() {
 	params := &swf.ListActivityTypesInput{
 		Domain:             aws.String("DomainName"),         // Required
 		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
+		MaximumPageSize:    aws.Int64(1),
 		Name:               aws.String("Name"),
 		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		ReverseOrder:       aws.Bool(true),
 	}
 	resp, err := svc.ListActivityTypes(params)
 
@@ -455,9 +455,9 @@ func ExampleSWF_ListClosedWorkflowExecutions() {
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
 			WorkflowID: aws.String("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
+		MaximumPageSize: aws.Int64(1),
 		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		ReverseOrder:    aws.Bool(true),
 		StartTimeFilter: &swf.ExecutionTimeFilter{
 			OldestDate: aws.Time(time.Now()), // Required
 			LatestDate: aws.Time(time.Now()),
@@ -496,9 +496,9 @@ func ExampleSWF_ListDomains() {
 
 	params := &swf.ListDomainsInput{
 		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
+		MaximumPageSize:    aws.Int64(1),
 		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		ReverseOrder:       aws.Bool(true),
 	}
 	resp, err := svc.ListDomains(params)
 
@@ -533,9 +533,9 @@ func ExampleSWF_ListOpenWorkflowExecutions() {
 		ExecutionFilter: &swf.WorkflowExecutionFilter{
 			WorkflowID: aws.String("WorkflowId"), // Required
 		},
-		MaximumPageSize: aws.Long(1),
+		MaximumPageSize: aws.Int64(1),
 		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		ReverseOrder:    aws.Bool(true),
 		TagFilter: &swf.TagFilter{
 			Tag: aws.String("Tag"), // Required
 		},
@@ -571,10 +571,10 @@ func ExampleSWF_ListWorkflowTypes() {
 	params := &swf.ListWorkflowTypesInput{
 		Domain:             aws.String("DomainName"),         // Required
 		RegistrationStatus: aws.String("RegistrationStatus"), // Required
-		MaximumPageSize:    aws.Long(1),
+		MaximumPageSize:    aws.Int64(1),
 		Name:               aws.String("Name"),
 		NextPageToken:      aws.String("PageToken"),
-		ReverseOrder:       aws.Boolean(true),
+		ReverseOrder:       aws.Bool(true),
 	}
 	resp, err := svc.ListWorkflowTypes(params)
 
@@ -637,9 +637,9 @@ func ExampleSWF_PollForDecisionTask() {
 			Name: aws.String("Name"), // Required
 		},
 		Identity:        aws.String("Identity"),
-		MaximumPageSize: aws.Long(1),
+		MaximumPageSize: aws.Int64(1),
 		NextPageToken:   aws.String("PageToken"),
-		ReverseOrder:    aws.Boolean(true),
+		ReverseOrder:    aws.Bool(true),
 	}
 	resp, err := svc.PollForDecisionTask(params)
 

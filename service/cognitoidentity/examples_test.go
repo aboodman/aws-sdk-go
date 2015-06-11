@@ -20,7 +20,7 @@ func ExampleCognitoIdentity_CreateIdentityPool() {
 	svc := cognitoidentity.New(nil)
 
 	params := &cognitoidentity.CreateIdentityPoolInput{
-		AllowUnauthenticatedIdentities: aws.Boolean(true),              // Required
+		AllowUnauthenticatedIdentities: aws.Bool(true),                 // Required
 		IdentityPoolName:               aws.String("IdentityPoolName"), // Required
 		DeveloperProviderName:          aws.String("DeveloperProviderName"),
 		OpenIDConnectProviderARNs: []*string{
@@ -295,7 +295,7 @@ func ExampleCognitoIdentity_GetOpenIDTokenForDeveloperIdentity() {
 			// More values...
 		},
 		IdentityID:    aws.String("IdentityId"),
-		TokenDuration: aws.Long(1),
+		TokenDuration: aws.Int64(1),
 	}
 	resp, err := svc.GetOpenIDTokenForDeveloperIdentity(params)
 
@@ -323,8 +323,8 @@ func ExampleCognitoIdentity_ListIdentities() {
 
 	params := &cognitoidentity.ListIdentitiesInput{
 		IdentityPoolID: aws.String("IdentityPoolId"), // Required
-		MaxResults:     aws.Long(1),                  // Required
-		HideDisabled:   aws.Boolean(true),
+		MaxResults:     aws.Int64(1),                 // Required
+		HideDisabled:   aws.Bool(true),
 		NextToken:      aws.String("PaginationKey"),
 	}
 	resp, err := svc.ListIdentities(params)
@@ -352,7 +352,7 @@ func ExampleCognitoIdentity_ListIdentityPools() {
 	svc := cognitoidentity.New(nil)
 
 	params := &cognitoidentity.ListIdentityPoolsInput{
-		MaxResults: aws.Long(1), // Required
+		MaxResults: aws.Int64(1), // Required
 		NextToken:  aws.String("PaginationKey"),
 	}
 	resp, err := svc.ListIdentityPools(params)
@@ -383,7 +383,7 @@ func ExampleCognitoIdentity_LookupDeveloperIdentity() {
 		IdentityPoolID:          aws.String("IdentityPoolId"), // Required
 		DeveloperUserIdentifier: aws.String("DeveloperUserIdentifier"),
 		IdentityID:              aws.String("IdentityId"),
-		MaxResults:              aws.Long(1),
+		MaxResults:              aws.Int64(1),
 		NextToken:               aws.String("PaginationKey"),
 	}
 	resp, err := svc.LookupDeveloperIdentity(params)
@@ -537,7 +537,7 @@ func ExampleCognitoIdentity_UpdateIdentityPool() {
 	svc := cognitoidentity.New(nil)
 
 	params := &cognitoidentity.IdentityPool{
-		AllowUnauthenticatedIdentities: aws.Boolean(true),              // Required
+		AllowUnauthenticatedIdentities: aws.Bool(true),                 // Required
 		IdentityPoolID:                 aws.String("IdentityPoolId"),   // Required
 		IdentityPoolName:               aws.String("IdentityPoolName"), // Required
 		DeveloperProviderName:          aws.String("DeveloperProviderName"),

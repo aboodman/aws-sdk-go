@@ -242,7 +242,7 @@ func ExampleRoute53Domains_ListDomains() {
 
 	params := &route53domains.ListDomainsInput{
 		Marker:   aws.String("PageMarker"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListDomains(params)
 
@@ -270,7 +270,7 @@ func ExampleRoute53Domains_ListOperations() {
 
 	params := &route53domains.ListOperationsInput{
 		Marker:   aws.String("PageMarker"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListOperations(params)
 
@@ -347,7 +347,7 @@ func ExampleRoute53Domains_RegisterDomain() {
 			ZipCode:          aws.String("ZipCode"),
 		},
 		DomainName:      aws.String("DomainName"), // Required
-		DurationInYears: aws.Long(1),              // Required
+		DurationInYears: aws.Int64(1),             // Required
 		RegistrantContact: &route53domains.ContactDetail{ // Required
 			AddressLine1: aws.String("AddressLine"),
 			AddressLine2: aws.String("AddressLine"),
@@ -392,11 +392,11 @@ func ExampleRoute53Domains_RegisterDomain() {
 			State:            aws.String("State"),
 			ZipCode:          aws.String("ZipCode"),
 		},
-		AutoRenew:                       aws.Boolean(true),
+		AutoRenew:                       aws.Bool(true),
 		IDNLangCode:                     aws.String("LangCode"),
-		PrivacyProtectAdminContact:      aws.Boolean(true),
-		PrivacyProtectRegistrantContact: aws.Boolean(true),
-		PrivacyProtectTechContact:       aws.Boolean(true),
+		PrivacyProtectAdminContact:      aws.Bool(true),
+		PrivacyProtectRegistrantContact: aws.Bool(true),
+		PrivacyProtectTechContact:       aws.Bool(true),
 	}
 	resp, err := svc.RegisterDomain(params)
 
@@ -473,7 +473,7 @@ func ExampleRoute53Domains_TransferDomain() {
 			ZipCode:          aws.String("ZipCode"),
 		},
 		DomainName:      aws.String("DomainName"), // Required
-		DurationInYears: aws.Long(1),              // Required
+		DurationInYears: aws.Int64(1),             // Required
 		RegistrantContact: &route53domains.ContactDetail{ // Required
 			AddressLine1: aws.String("AddressLine"),
 			AddressLine2: aws.String("AddressLine"),
@@ -519,7 +519,7 @@ func ExampleRoute53Domains_TransferDomain() {
 			ZipCode:          aws.String("ZipCode"),
 		},
 		AuthCode:    aws.String("DomainAuthCode"),
-		AutoRenew:   aws.Boolean(true),
+		AutoRenew:   aws.Bool(true),
 		IDNLangCode: aws.String("LangCode"),
 		Nameservers: []*route53domains.Nameserver{
 			{ // Required
@@ -531,9 +531,9 @@ func ExampleRoute53Domains_TransferDomain() {
 			},
 			// More values...
 		},
-		PrivacyProtectAdminContact:      aws.Boolean(true),
-		PrivacyProtectRegistrantContact: aws.Boolean(true),
-		PrivacyProtectTechContact:       aws.Boolean(true),
+		PrivacyProtectAdminContact:      aws.Bool(true),
+		PrivacyProtectRegistrantContact: aws.Bool(true),
+		PrivacyProtectTechContact:       aws.Bool(true),
 	}
 	resp, err := svc.TransferDomain(params)
 
@@ -654,9 +654,9 @@ func ExampleRoute53Domains_UpdateDomainContactPrivacy() {
 
 	params := &route53domains.UpdateDomainContactPrivacyInput{
 		DomainName:        aws.String("DomainName"), // Required
-		AdminPrivacy:      aws.Boolean(true),
-		RegistrantPrivacy: aws.Boolean(true),
-		TechPrivacy:       aws.Boolean(true),
+		AdminPrivacy:      aws.Bool(true),
+		RegistrantPrivacy: aws.Bool(true),
+		TechPrivacy:       aws.Bool(true),
 	}
 	resp, err := svc.UpdateDomainContactPrivacy(params)
 

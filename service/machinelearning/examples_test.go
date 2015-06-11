@@ -75,7 +75,7 @@ func ExampleMachineLearning_CreateDataSourceFromRDS() {
 			DataSchemaURI:     aws.String("S3Url"),
 		},
 		RoleARN:           aws.String("RoleARN"), // Required
-		ComputeStatistics: aws.Boolean(true),
+		ComputeStatistics: aws.Bool(true),
 		DataSourceName:    aws.String("EntityName"),
 	}
 	resp, err := svc.CreateDataSourceFromRDS(params)
@@ -120,7 +120,7 @@ func ExampleMachineLearning_CreateDataSourceFromRedshift() {
 			DataSchemaURI:     aws.String("S3Url"),
 		},
 		RoleARN:           aws.String("RoleARN"), // Required
-		ComputeStatistics: aws.Boolean(true),
+		ComputeStatistics: aws.Bool(true),
 		DataSourceName:    aws.String("EntityName"),
 	}
 	resp, err := svc.CreateDataSourceFromRedshift(params)
@@ -155,7 +155,7 @@ func ExampleMachineLearning_CreateDataSourceFromS3() {
 			DataSchema:           aws.String("DataSchema"),
 			DataSchemaLocationS3: aws.String("S3Url"),
 		},
-		ComputeStatistics: aws.Boolean(true),
+		ComputeStatistics: aws.Bool(true),
 		DataSourceName:    aws.String("EntityName"),
 	}
 	resp, err := svc.CreateDataSourceFromS3(params)
@@ -417,7 +417,7 @@ func ExampleMachineLearning_DescribeBatchPredictions() {
 		GT:             aws.String("ComparatorValue"),
 		LE:             aws.String("ComparatorValue"),
 		LT:             aws.String("ComparatorValue"),
-		Limit:          aws.Long(1),
+		Limit:          aws.Int64(1),
 		NE:             aws.String("ComparatorValue"),
 		NextToken:      aws.String("StringType"),
 		Prefix:         aws.String("ComparatorValue"),
@@ -454,7 +454,7 @@ func ExampleMachineLearning_DescribeDataSources() {
 		GT:             aws.String("ComparatorValue"),
 		LE:             aws.String("ComparatorValue"),
 		LT:             aws.String("ComparatorValue"),
-		Limit:          aws.Long(1),
+		Limit:          aws.Int64(1),
 		NE:             aws.String("ComparatorValue"),
 		NextToken:      aws.String("StringType"),
 		Prefix:         aws.String("ComparatorValue"),
@@ -491,7 +491,7 @@ func ExampleMachineLearning_DescribeEvaluations() {
 		GT:             aws.String("ComparatorValue"),
 		LE:             aws.String("ComparatorValue"),
 		LT:             aws.String("ComparatorValue"),
-		Limit:          aws.Long(1),
+		Limit:          aws.Int64(1),
 		NE:             aws.String("ComparatorValue"),
 		NextToken:      aws.String("StringType"),
 		Prefix:         aws.String("ComparatorValue"),
@@ -528,7 +528,7 @@ func ExampleMachineLearning_DescribeMLModels() {
 		GT:             aws.String("ComparatorValue"),
 		LE:             aws.String("ComparatorValue"),
 		LT:             aws.String("ComparatorValue"),
-		Limit:          aws.Long(1),
+		Limit:          aws.Int64(1),
 		NE:             aws.String("ComparatorValue"),
 		NextToken:      aws.String("StringType"),
 		Prefix:         aws.String("ComparatorValue"),
@@ -587,7 +587,7 @@ func ExampleMachineLearning_GetDataSource() {
 
 	params := &machinelearning.GetDataSourceInput{
 		DataSourceID: aws.String("EntityId"), // Required
-		Verbose:      aws.Boolean(true),
+		Verbose:      aws.Bool(true),
 	}
 	resp, err := svc.GetDataSource(params)
 
@@ -642,7 +642,7 @@ func ExampleMachineLearning_GetMLModel() {
 
 	params := &machinelearning.GetMLModelInput{
 		MLModelID: aws.String("EntityId"), // Required
-		Verbose:   aws.Boolean(true),
+		Verbose:   aws.Bool(true),
 	}
 	resp, err := svc.GetMLModel(params)
 
@@ -787,7 +787,7 @@ func ExampleMachineLearning_UpdateMLModel() {
 	params := &machinelearning.UpdateMLModelInput{
 		MLModelID:      aws.String("EntityId"), // Required
 		MLModelName:    aws.String("EntityName"),
-		ScoreThreshold: aws.Double(1.0),
+		ScoreThreshold: aws.Float64(1.0),
 	}
 	resp, err := svc.UpdateMLModel(params)
 

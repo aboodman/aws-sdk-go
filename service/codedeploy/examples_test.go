@@ -178,7 +178,7 @@ func ExampleCodeDeploy_CreateDeployment() {
 		DeploymentConfigName:          aws.String("DeploymentConfigName"),
 		DeploymentGroupName:           aws.String("DeploymentGroupName"),
 		Description:                   aws.String("Description"),
-		IgnoreApplicationStopFailures: aws.Boolean(true),
+		IgnoreApplicationStopFailures: aws.Bool(true),
 		Revision: &codedeploy.RevisionLocation{
 			GitHubLocation: &codedeploy.GitHubLocation{
 				CommitID:   aws.String("CommitId"),
@@ -222,7 +222,7 @@ func ExampleCodeDeploy_CreateDeploymentConfig() {
 		DeploymentConfigName: aws.String("DeploymentConfigName"), // Required
 		MinimumHealthyHosts: &codedeploy.MinimumHealthyHosts{
 			Type:  aws.String("MinimumHealthyHostsType"),
-			Value: aws.Long(1),
+			Value: aws.Int64(1),
 		},
 	}
 	resp, err := svc.CreateDeploymentConfig(params)

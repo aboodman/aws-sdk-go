@@ -144,13 +144,13 @@ func ExampleOpsWorks_CloneStack() {
 		},
 		ChefConfiguration: &opsworks.ChefConfiguration{
 			BerkshelfVersion: aws.String("String"),
-			ManageBerkshelf:  aws.Boolean(true),
+			ManageBerkshelf:  aws.Bool(true),
 		},
 		CloneAppIDs: []*string{
 			aws.String("String"), // Required
 			// More values...
 		},
-		ClonePermissions: aws.Boolean(true),
+		ClonePermissions: aws.Bool(true),
 		ConfigurationManager: &opsworks.StackConfigurationManager{
 			Name:    aws.String("String"),
 			Version: aws.String("String"),
@@ -173,8 +173,8 @@ func ExampleOpsWorks_CloneStack() {
 		HostnameTheme:             aws.String("String"),
 		Name:                      aws.String("String"),
 		Region:                    aws.String("String"),
-		UseCustomCookbooks:        aws.Boolean(true),
-		UseOpsWorksSecurityGroups: aws.Boolean(true),
+		UseCustomCookbooks:        aws.Bool(true),
+		UseOpsWorksSecurityGroups: aws.Bool(true),
 		VPCID: aws.String("String"),
 	}
 	resp, err := svc.CloneStack(params)
@@ -230,12 +230,12 @@ func ExampleOpsWorks_CreateApp() {
 			aws.String("String"), // Required
 			// More values...
 		},
-		EnableSSL: aws.Boolean(true),
+		EnableSSL: aws.Bool(true),
 		Environment: []*opsworks.EnvironmentVariable{
 			{ // Required
 				Key:    aws.String("String"), // Required
 				Value:  aws.String("String"), // Required
-				Secure: aws.Boolean(true),
+				Secure: aws.Bool(true),
 			},
 			// More values...
 		},
@@ -330,10 +330,10 @@ func ExampleOpsWorks_CreateInstance() {
 			{ // Required
 				DeviceName: aws.String("String"),
 				EBS: &opsworks.EBSBlockDevice{
-					DeleteOnTermination: aws.Boolean(true),
-					IOPS:                aws.Long(1),
+					DeleteOnTermination: aws.Bool(true),
+					IOPS:                aws.Int64(1),
 					SnapshotID:          aws.String("String"),
-					VolumeSize:          aws.Long(1),
+					VolumeSize:          aws.Int64(1),
 					VolumeType:          aws.String("VolumeType"),
 				},
 				NoDevice:    aws.String("String"),
@@ -341,9 +341,9 @@ func ExampleOpsWorks_CreateInstance() {
 			},
 			// More values...
 		},
-		EBSOptimized:         aws.Boolean(true),
+		EBSOptimized:         aws.Bool(true),
 		Hostname:             aws.String("String"),
-		InstallUpdatesOnBoot: aws.Boolean(true),
+		InstallUpdatesOnBoot: aws.Bool(true),
 		Os:                   aws.String("String"),
 		RootDeviceType:       aws.String("RootDeviceType"),
 		SSHKeyName:           aws.String("String"),
@@ -383,8 +383,8 @@ func ExampleOpsWorks_CreateLayer() {
 			"Key": aws.String("String"), // Required
 			// More values...
 		},
-		AutoAssignElasticIPs:     aws.Boolean(true),
-		AutoAssignPublicIPs:      aws.Boolean(true),
+		AutoAssignElasticIPs:     aws.Bool(true),
+		AutoAssignPublicIPs:      aws.Bool(true),
 		CustomInstanceProfileARN: aws.String("String"),
 		CustomRecipes: &opsworks.Recipes{
 			Configure: []*string{
@@ -412,26 +412,26 @@ func ExampleOpsWorks_CreateLayer() {
 			aws.String("String"), // Required
 			// More values...
 		},
-		EnableAutoHealing:    aws.Boolean(true),
-		InstallUpdatesOnBoot: aws.Boolean(true),
+		EnableAutoHealing:    aws.Bool(true),
+		InstallUpdatesOnBoot: aws.Bool(true),
 		LifecycleEventConfiguration: &opsworks.LifecycleEventConfiguration{
 			Shutdown: &opsworks.ShutdownEventConfiguration{
-				DelayUntilELBConnectionsDrained: aws.Boolean(true),
-				ExecutionTimeout:                aws.Long(1),
+				DelayUntilELBConnectionsDrained: aws.Bool(true),
+				ExecutionTimeout:                aws.Int64(1),
 			},
 		},
 		Packages: []*string{
 			aws.String("String"), // Required
 			// More values...
 		},
-		UseEBSOptimizedInstances: aws.Boolean(true),
+		UseEBSOptimizedInstances: aws.Bool(true),
 		VolumeConfigurations: []*opsworks.VolumeConfiguration{
 			{ // Required
 				MountPoint:    aws.String("String"), // Required
-				NumberOfDisks: aws.Long(1),          // Required
-				Size:          aws.Long(1),          // Required
-				IOPS:          aws.Long(1),
-				RAIDLevel:     aws.Long(1),
+				NumberOfDisks: aws.Int64(1),         // Required
+				Size:          aws.Int64(1),         // Required
+				IOPS:          aws.Int64(1),
+				RAIDLevel:     aws.Int64(1),
 				VolumeType:    aws.String("String"),
 			},
 			// More values...
@@ -473,7 +473,7 @@ func ExampleOpsWorks_CreateStack() {
 		},
 		ChefConfiguration: &opsworks.ChefConfiguration{
 			BerkshelfVersion: aws.String("String"),
-			ManageBerkshelf:  aws.Boolean(true),
+			ManageBerkshelf:  aws.Bool(true),
 		},
 		ConfigurationManager: &opsworks.StackConfigurationManager{
 			Name:    aws.String("String"),
@@ -494,8 +494,8 @@ func ExampleOpsWorks_CreateStack() {
 		DefaultSSHKeyName:         aws.String("String"),
 		DefaultSubnetID:           aws.String("String"),
 		HostnameTheme:             aws.String("String"),
-		UseCustomCookbooks:        aws.Boolean(true),
-		UseOpsWorksSecurityGroups: aws.Boolean(true),
+		UseCustomCookbooks:        aws.Bool(true),
+		UseOpsWorksSecurityGroups: aws.Bool(true),
 		VPCID: aws.String("String"),
 	}
 	resp, err := svc.CreateStack(params)
@@ -524,7 +524,7 @@ func ExampleOpsWorks_CreateUserProfile() {
 
 	params := &opsworks.CreateUserProfileInput{
 		IAMUserARN:          aws.String("String"), // Required
-		AllowSelfManagement: aws.Boolean(true),
+		AllowSelfManagement: aws.Bool(true),
 		SSHPublicKey:        aws.String("String"),
 		SSHUsername:         aws.String("String"),
 	}
@@ -581,8 +581,8 @@ func ExampleOpsWorks_DeleteInstance() {
 
 	params := &opsworks.DeleteInstanceInput{
 		InstanceID:      aws.String("String"), // Required
-		DeleteElasticIP: aws.Boolean(true),
-		DeleteVolumes:   aws.Boolean(true),
+		DeleteElasticIP: aws.Bool(true),
+		DeleteVolumes:   aws.Bool(true),
 	}
 	resp, err := svc.DeleteInstance(params)
 
@@ -1488,7 +1488,7 @@ func ExampleOpsWorks_GrantAccess() {
 
 	params := &opsworks.GrantAccessInput{
 		InstanceID:        aws.String("String"), // Required
-		ValidForInMinutes: aws.Long(1),
+		ValidForInMinutes: aws.Int64(1),
 	}
 	resp, err := svc.GrantAccess(params)
 
@@ -1670,25 +1670,25 @@ func ExampleOpsWorks_SetLoadBasedAutoScaling() {
 				aws.String("String"), // Required
 				// More values...
 			},
-			CPUThreshold:       aws.Double(1.0),
-			IgnoreMetricsTime:  aws.Long(1),
-			InstanceCount:      aws.Long(1),
-			LoadThreshold:      aws.Double(1.0),
-			MemoryThreshold:    aws.Double(1.0),
-			ThresholdsWaitTime: aws.Long(1),
+			CPUThreshold:       aws.Float64(1.0),
+			IgnoreMetricsTime:  aws.Int64(1),
+			InstanceCount:      aws.Int64(1),
+			LoadThreshold:      aws.Float64(1.0),
+			MemoryThreshold:    aws.Float64(1.0),
+			ThresholdsWaitTime: aws.Int64(1),
 		},
-		Enable: aws.Boolean(true),
+		Enable: aws.Bool(true),
 		UpScaling: &opsworks.AutoScalingThresholds{
 			Alarms: []*string{
 				aws.String("String"), // Required
 				// More values...
 			},
-			CPUThreshold:       aws.Double(1.0),
-			IgnoreMetricsTime:  aws.Long(1),
-			InstanceCount:      aws.Long(1),
-			LoadThreshold:      aws.Double(1.0),
-			MemoryThreshold:    aws.Double(1.0),
-			ThresholdsWaitTime: aws.Long(1),
+			CPUThreshold:       aws.Float64(1.0),
+			IgnoreMetricsTime:  aws.Int64(1),
+			InstanceCount:      aws.Int64(1),
+			LoadThreshold:      aws.Float64(1.0),
+			MemoryThreshold:    aws.Float64(1.0),
+			ThresholdsWaitTime: aws.Int64(1),
 		},
 	}
 	resp, err := svc.SetLoadBasedAutoScaling(params)
@@ -1718,8 +1718,8 @@ func ExampleOpsWorks_SetPermission() {
 	params := &opsworks.SetPermissionInput{
 		IAMUserARN: aws.String("String"), // Required
 		StackID:    aws.String("String"), // Required
-		AllowSSH:   aws.Boolean(true),
-		AllowSudo:  aws.Boolean(true),
+		AllowSSH:   aws.Bool(true),
+		AllowSudo:  aws.Bool(true),
 		Level:      aws.String("String"),
 	}
 	resp, err := svc.SetPermission(params)
@@ -1992,12 +1992,12 @@ func ExampleOpsWorks_UpdateApp() {
 			aws.String("String"), // Required
 			// More values...
 		},
-		EnableSSL: aws.Boolean(true),
+		EnableSSL: aws.Bool(true),
 		Environment: []*opsworks.EnvironmentVariable{
 			{ // Required
 				Key:    aws.String("String"), // Required
 				Value:  aws.String("String"), // Required
-				Secure: aws.Boolean(true),
+				Secure: aws.Bool(true),
 			},
 			// More values...
 		},
@@ -2067,9 +2067,9 @@ func ExampleOpsWorks_UpdateInstance() {
 		AgentVersion:         aws.String("String"),
 		Architecture:         aws.String("Architecture"),
 		AutoScalingType:      aws.String("AutoScalingType"),
-		EBSOptimized:         aws.Boolean(true),
+		EBSOptimized:         aws.Bool(true),
 		Hostname:             aws.String("String"),
-		InstallUpdatesOnBoot: aws.Boolean(true),
+		InstallUpdatesOnBoot: aws.Bool(true),
 		InstanceType:         aws.String("String"),
 		LayerIDs: []*string{
 			aws.String("String"), // Required
@@ -2108,8 +2108,8 @@ func ExampleOpsWorks_UpdateLayer() {
 			"Key": aws.String("String"), // Required
 			// More values...
 		},
-		AutoAssignElasticIPs:     aws.Boolean(true),
-		AutoAssignPublicIPs:      aws.Boolean(true),
+		AutoAssignElasticIPs:     aws.Bool(true),
+		AutoAssignPublicIPs:      aws.Bool(true),
 		CustomInstanceProfileARN: aws.String("String"),
 		CustomRecipes: &opsworks.Recipes{
 			Configure: []*string{
@@ -2137,12 +2137,12 @@ func ExampleOpsWorks_UpdateLayer() {
 			aws.String("String"), // Required
 			// More values...
 		},
-		EnableAutoHealing:    aws.Boolean(true),
-		InstallUpdatesOnBoot: aws.Boolean(true),
+		EnableAutoHealing:    aws.Bool(true),
+		InstallUpdatesOnBoot: aws.Bool(true),
 		LifecycleEventConfiguration: &opsworks.LifecycleEventConfiguration{
 			Shutdown: &opsworks.ShutdownEventConfiguration{
-				DelayUntilELBConnectionsDrained: aws.Boolean(true),
-				ExecutionTimeout:                aws.Long(1),
+				DelayUntilELBConnectionsDrained: aws.Bool(true),
+				ExecutionTimeout:                aws.Int64(1),
 			},
 		},
 		Name: aws.String("String"),
@@ -2151,14 +2151,14 @@ func ExampleOpsWorks_UpdateLayer() {
 			// More values...
 		},
 		Shortname:                aws.String("String"),
-		UseEBSOptimizedInstances: aws.Boolean(true),
+		UseEBSOptimizedInstances: aws.Bool(true),
 		VolumeConfigurations: []*opsworks.VolumeConfiguration{
 			{ // Required
 				MountPoint:    aws.String("String"), // Required
-				NumberOfDisks: aws.Long(1),          // Required
-				Size:          aws.Long(1),          // Required
-				IOPS:          aws.Long(1),
-				RAIDLevel:     aws.Long(1),
+				NumberOfDisks: aws.Int64(1),         // Required
+				Size:          aws.Int64(1),         // Required
+				IOPS:          aws.Int64(1),
+				RAIDLevel:     aws.Int64(1),
 				VolumeType:    aws.String("String"),
 			},
 			// More values...
@@ -2253,7 +2253,7 @@ func ExampleOpsWorks_UpdateStack() {
 		},
 		ChefConfiguration: &opsworks.ChefConfiguration{
 			BerkshelfVersion: aws.String("String"),
-			ManageBerkshelf:  aws.Boolean(true),
+			ManageBerkshelf:  aws.Bool(true),
 		},
 		ConfigurationManager: &opsworks.StackConfigurationManager{
 			Name:    aws.String("String"),
@@ -2277,8 +2277,8 @@ func ExampleOpsWorks_UpdateStack() {
 		HostnameTheme:             aws.String("String"),
 		Name:                      aws.String("String"),
 		ServiceRoleARN:            aws.String("String"),
-		UseCustomCookbooks:        aws.Boolean(true),
-		UseOpsWorksSecurityGroups: aws.Boolean(true),
+		UseCustomCookbooks:        aws.Bool(true),
+		UseOpsWorksSecurityGroups: aws.Bool(true),
 	}
 	resp, err := svc.UpdateStack(params)
 
@@ -2306,7 +2306,7 @@ func ExampleOpsWorks_UpdateUserProfile() {
 
 	params := &opsworks.UpdateUserProfileInput{
 		IAMUserARN:          aws.String("String"), // Required
-		AllowSelfManagement: aws.Boolean(true),
+		AllowSelfManagement: aws.Bool(true),
 		SSHPublicKey:        aws.String("String"),
 		SSHUsername:         aws.String("String"),
 	}

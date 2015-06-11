@@ -202,7 +202,7 @@ func ExampleEFS_DescribeFileSystems() {
 		CreationToken: aws.String("CreationToken"),
 		FileSystemID:  aws.String("FileSystemId"),
 		Marker:        aws.String("Marker"),
-		MaxItems:      aws.Long(1),
+		MaxItems:      aws.Int64(1),
 	}
 	resp, err := svc.DescribeFileSystems(params)
 
@@ -258,7 +258,7 @@ func ExampleEFS_DescribeMountTargets() {
 	params := &efs.DescribeMountTargetsInput{
 		FileSystemID: aws.String("FileSystemId"), // Required
 		Marker:       aws.String("Marker"),
-		MaxItems:     aws.Long(1),
+		MaxItems:     aws.Int64(1),
 	}
 	resp, err := svc.DescribeMountTargets(params)
 
@@ -287,7 +287,7 @@ func ExampleEFS_DescribeTags() {
 	params := &efs.DescribeTagsInput{
 		FileSystemID: aws.String("FileSystemId"), // Required
 		Marker:       aws.String("Marker"),
-		MaxItems:     aws.Long(1),
+		MaxItems:     aws.Int64(1),
 	}
 	resp, err := svc.DescribeTags(params)
 

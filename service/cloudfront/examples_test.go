@@ -58,27 +58,27 @@ func ExampleCloudFront_CreateDistribution() {
 					Cookies: &cloudfront.CookiePreference{ // Required
 						Forward: aws.String("ItemSelection"), // Required
 						WhitelistedNames: &cloudfront.CookieNames{
-							Quantity: aws.Long(1), // Required
+							Quantity: aws.Int64(1), // Required
 							Items: []*string{
 								aws.String("string"), // Required
 								// More values...
 							},
 						},
 					},
-					QueryString: aws.Boolean(true), // Required
+					QueryString: aws.Bool(true), // Required
 					Headers: &cloudfront.Headers{
-						Quantity: aws.Long(1), // Required
+						Quantity: aws.Int64(1), // Required
 						Items: []*string{
 							aws.String("string"), // Required
 							// More values...
 						},
 					},
 				},
-				MinTTL:         aws.Long(1),          // Required
+				MinTTL:         aws.Int64(1),         // Required
 				TargetOriginID: aws.String("string"), // Required
 				TrustedSigners: &cloudfront.TrustedSigners{ // Required
-					Enabled:  aws.Boolean(true), // Required
-					Quantity: aws.Long(1),       // Required
+					Enabled:  aws.Bool(true), // Required
+					Quantity: aws.Int64(1),   // Required
 					Items: []*string{
 						aws.String("string"), // Required
 						// More values...
@@ -90,29 +90,29 @@ func ExampleCloudFront_CreateDistribution() {
 						aws.String("Method"), // Required
 						// More values...
 					},
-					Quantity: aws.Long(1), // Required
+					Quantity: aws.Int64(1), // Required
 					CachedMethods: &cloudfront.CachedMethods{
 						Items: []*string{ // Required
 							aws.String("Method"), // Required
 							// More values...
 						},
-						Quantity: aws.Long(1), // Required
+						Quantity: aws.Int64(1), // Required
 					},
 				},
-				DefaultTTL:      aws.Long(1),
-				MaxTTL:          aws.Long(1),
-				SmoothStreaming: aws.Boolean(true),
+				DefaultTTL:      aws.Int64(1),
+				MaxTTL:          aws.Int64(1),
+				SmoothStreaming: aws.Bool(true),
 			},
-			Enabled: aws.Boolean(true), // Required
+			Enabled: aws.Bool(true), // Required
 			Origins: &cloudfront.Origins{ // Required
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.Origin{
 					{ // Required
 						DomainName: aws.String("string"), // Required
 						ID:         aws.String("string"), // Required
 						CustomOriginConfig: &cloudfront.CustomOriginConfig{
-							HTTPPort:             aws.Long(1),                        // Required
-							HTTPSPort:            aws.Long(1),                        // Required
+							HTTPPort:             aws.Int64(1),                       // Required
+							HTTPSPort:            aws.Int64(1),                       // Required
 							OriginProtocolPolicy: aws.String("OriginProtocolPolicy"), // Required
 						},
 						OriginPath: aws.String("string"),
@@ -124,42 +124,42 @@ func ExampleCloudFront_CreateDistribution() {
 				},
 			},
 			Aliases: &cloudfront.Aliases{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
 				},
 			},
 			CacheBehaviors: &cloudfront.CacheBehaviors{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.CacheBehavior{
 					{ // Required
 						ForwardedValues: &cloudfront.ForwardedValues{ // Required
 							Cookies: &cloudfront.CookiePreference{ // Required
 								Forward: aws.String("ItemSelection"), // Required
 								WhitelistedNames: &cloudfront.CookieNames{
-									Quantity: aws.Long(1), // Required
+									Quantity: aws.Int64(1), // Required
 									Items: []*string{
 										aws.String("string"), // Required
 										// More values...
 									},
 								},
 							},
-							QueryString: aws.Boolean(true), // Required
+							QueryString: aws.Bool(true), // Required
 							Headers: &cloudfront.Headers{
-								Quantity: aws.Long(1), // Required
+								Quantity: aws.Int64(1), // Required
 								Items: []*string{
 									aws.String("string"), // Required
 									// More values...
 								},
 							},
 						},
-						MinTTL:         aws.Long(1),          // Required
+						MinTTL:         aws.Int64(1),         // Required
 						PathPattern:    aws.String("string"), // Required
 						TargetOriginID: aws.String("string"), // Required
 						TrustedSigners: &cloudfront.TrustedSigners{ // Required
-							Enabled:  aws.Boolean(true), // Required
-							Quantity: aws.Long(1),       // Required
+							Enabled:  aws.Bool(true), // Required
+							Quantity: aws.Int64(1),   // Required
 							Items: []*string{
 								aws.String("string"), // Required
 								// More values...
@@ -171,28 +171,28 @@ func ExampleCloudFront_CreateDistribution() {
 								aws.String("Method"), // Required
 								// More values...
 							},
-							Quantity: aws.Long(1), // Required
+							Quantity: aws.Int64(1), // Required
 							CachedMethods: &cloudfront.CachedMethods{
 								Items: []*string{ // Required
 									aws.String("Method"), // Required
 									// More values...
 								},
-								Quantity: aws.Long(1), // Required
+								Quantity: aws.Int64(1), // Required
 							},
 						},
-						DefaultTTL:      aws.Long(1),
-						MaxTTL:          aws.Long(1),
-						SmoothStreaming: aws.Boolean(true),
+						DefaultTTL:      aws.Int64(1),
+						MaxTTL:          aws.Int64(1),
+						SmoothStreaming: aws.Bool(true),
 					},
 					// More values...
 				},
 			},
 			CustomErrorResponses: &cloudfront.CustomErrorResponses{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.CustomErrorResponse{
 					{ // Required
-						ErrorCode:          aws.Long(1), // Required
-						ErrorCachingMinTTL: aws.Long(1),
+						ErrorCode:          aws.Int64(1), // Required
+						ErrorCachingMinTTL: aws.Int64(1),
 						ResponseCode:       aws.String("string"),
 						ResponsePagePath:   aws.String("string"),
 					},
@@ -202,14 +202,14 @@ func ExampleCloudFront_CreateDistribution() {
 			DefaultRootObject: aws.String("string"),
 			Logging: &cloudfront.LoggingConfig{
 				Bucket:         aws.String("string"), // Required
-				Enabled:        aws.Boolean(true),    // Required
-				IncludeCookies: aws.Boolean(true),    // Required
+				Enabled:        aws.Bool(true),       // Required
+				IncludeCookies: aws.Bool(true),       // Required
 				Prefix:         aws.String("string"), // Required
 			},
 			PriceClass: aws.String("PriceClass"),
 			Restrictions: &cloudfront.Restrictions{
 				GeoRestriction: &cloudfront.GeoRestriction{ // Required
-					Quantity:        aws.Long(1),                      // Required
+					Quantity:        aws.Int64(1),                     // Required
 					RestrictionType: aws.String("GeoRestrictionType"), // Required
 					Items: []*string{
 						aws.String("string"), // Required
@@ -218,7 +218,7 @@ func ExampleCloudFront_CreateDistribution() {
 				},
 			},
 			ViewerCertificate: &cloudfront.ViewerCertificate{
-				CloudFrontDefaultCertificate: aws.Boolean(true),
+				CloudFrontDefaultCertificate: aws.Bool(true),
 				IAMCertificateID:             aws.String("string"),
 				MinimumProtocolVersion:       aws.String("MinimumProtocolVersion"),
 				SSLSupportMethod:             aws.String("SSLSupportMethod"),
@@ -254,7 +254,7 @@ func ExampleCloudFront_CreateInvalidation() {
 		InvalidationBatch: &cloudfront.InvalidationBatch{ // Required
 			CallerReference: aws.String("string"), // Required
 			Paths: &cloudfront.Paths{ // Required
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
@@ -290,21 +290,21 @@ func ExampleCloudFront_CreateStreamingDistribution() {
 		StreamingDistributionConfig: &cloudfront.StreamingDistributionConfig{ // Required
 			CallerReference: aws.String("string"), // Required
 			Comment:         aws.String("string"), // Required
-			Enabled:         aws.Boolean(true),    // Required
+			Enabled:         aws.Bool(true),       // Required
 			S3Origin: &cloudfront.S3Origin{ // Required
 				DomainName:           aws.String("string"), // Required
 				OriginAccessIdentity: aws.String("string"), // Required
 			},
 			TrustedSigners: &cloudfront.TrustedSigners{ // Required
-				Enabled:  aws.Boolean(true), // Required
-				Quantity: aws.Long(1),       // Required
+				Enabled:  aws.Bool(true), // Required
+				Quantity: aws.Int64(1),   // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
 				},
 			},
 			Aliases: &cloudfront.Aliases{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
@@ -312,7 +312,7 @@ func ExampleCloudFront_CreateStreamingDistribution() {
 			},
 			Logging: &cloudfront.StreamingLoggingConfig{
 				Bucket:  aws.String("string"), // Required
-				Enabled: aws.Boolean(true),    // Required
+				Enabled: aws.Bool(true),       // Required
 				Prefix:  aws.String("string"), // Required
 			},
 			PriceClass: aws.String("PriceClass"),
@@ -618,7 +618,7 @@ func ExampleCloudFront_ListCloudFrontOriginAccessIdentities() {
 
 	params := &cloudfront.ListCloudFrontOriginAccessIdentitiesInput{
 		Marker:   aws.String("string"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListCloudFrontOriginAccessIdentities(params)
 
@@ -646,7 +646,7 @@ func ExampleCloudFront_ListDistributions() {
 
 	params := &cloudfront.ListDistributionsInput{
 		Marker:   aws.String("string"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListDistributions(params)
 
@@ -675,7 +675,7 @@ func ExampleCloudFront_ListInvalidations() {
 	params := &cloudfront.ListInvalidationsInput{
 		DistributionID: aws.String("string"), // Required
 		Marker:         aws.String("string"),
-		MaxItems:       aws.Long(1),
+		MaxItems:       aws.Int64(1),
 	}
 	resp, err := svc.ListInvalidations(params)
 
@@ -703,7 +703,7 @@ func ExampleCloudFront_ListStreamingDistributions() {
 
 	params := &cloudfront.ListStreamingDistributionsInput{
 		Marker:   aws.String("string"),
-		MaxItems: aws.Long(1),
+		MaxItems: aws.Int64(1),
 	}
 	resp, err := svc.ListStreamingDistributions(params)
 
@@ -770,27 +770,27 @@ func ExampleCloudFront_UpdateDistribution() {
 					Cookies: &cloudfront.CookiePreference{ // Required
 						Forward: aws.String("ItemSelection"), // Required
 						WhitelistedNames: &cloudfront.CookieNames{
-							Quantity: aws.Long(1), // Required
+							Quantity: aws.Int64(1), // Required
 							Items: []*string{
 								aws.String("string"), // Required
 								// More values...
 							},
 						},
 					},
-					QueryString: aws.Boolean(true), // Required
+					QueryString: aws.Bool(true), // Required
 					Headers: &cloudfront.Headers{
-						Quantity: aws.Long(1), // Required
+						Quantity: aws.Int64(1), // Required
 						Items: []*string{
 							aws.String("string"), // Required
 							// More values...
 						},
 					},
 				},
-				MinTTL:         aws.Long(1),          // Required
+				MinTTL:         aws.Int64(1),         // Required
 				TargetOriginID: aws.String("string"), // Required
 				TrustedSigners: &cloudfront.TrustedSigners{ // Required
-					Enabled:  aws.Boolean(true), // Required
-					Quantity: aws.Long(1),       // Required
+					Enabled:  aws.Bool(true), // Required
+					Quantity: aws.Int64(1),   // Required
 					Items: []*string{
 						aws.String("string"), // Required
 						// More values...
@@ -802,29 +802,29 @@ func ExampleCloudFront_UpdateDistribution() {
 						aws.String("Method"), // Required
 						// More values...
 					},
-					Quantity: aws.Long(1), // Required
+					Quantity: aws.Int64(1), // Required
 					CachedMethods: &cloudfront.CachedMethods{
 						Items: []*string{ // Required
 							aws.String("Method"), // Required
 							// More values...
 						},
-						Quantity: aws.Long(1), // Required
+						Quantity: aws.Int64(1), // Required
 					},
 				},
-				DefaultTTL:      aws.Long(1),
-				MaxTTL:          aws.Long(1),
-				SmoothStreaming: aws.Boolean(true),
+				DefaultTTL:      aws.Int64(1),
+				MaxTTL:          aws.Int64(1),
+				SmoothStreaming: aws.Bool(true),
 			},
-			Enabled: aws.Boolean(true), // Required
+			Enabled: aws.Bool(true), // Required
 			Origins: &cloudfront.Origins{ // Required
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.Origin{
 					{ // Required
 						DomainName: aws.String("string"), // Required
 						ID:         aws.String("string"), // Required
 						CustomOriginConfig: &cloudfront.CustomOriginConfig{
-							HTTPPort:             aws.Long(1),                        // Required
-							HTTPSPort:            aws.Long(1),                        // Required
+							HTTPPort:             aws.Int64(1),                       // Required
+							HTTPSPort:            aws.Int64(1),                       // Required
 							OriginProtocolPolicy: aws.String("OriginProtocolPolicy"), // Required
 						},
 						OriginPath: aws.String("string"),
@@ -836,42 +836,42 @@ func ExampleCloudFront_UpdateDistribution() {
 				},
 			},
 			Aliases: &cloudfront.Aliases{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
 				},
 			},
 			CacheBehaviors: &cloudfront.CacheBehaviors{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.CacheBehavior{
 					{ // Required
 						ForwardedValues: &cloudfront.ForwardedValues{ // Required
 							Cookies: &cloudfront.CookiePreference{ // Required
 								Forward: aws.String("ItemSelection"), // Required
 								WhitelistedNames: &cloudfront.CookieNames{
-									Quantity: aws.Long(1), // Required
+									Quantity: aws.Int64(1), // Required
 									Items: []*string{
 										aws.String("string"), // Required
 										// More values...
 									},
 								},
 							},
-							QueryString: aws.Boolean(true), // Required
+							QueryString: aws.Bool(true), // Required
 							Headers: &cloudfront.Headers{
-								Quantity: aws.Long(1), // Required
+								Quantity: aws.Int64(1), // Required
 								Items: []*string{
 									aws.String("string"), // Required
 									// More values...
 								},
 							},
 						},
-						MinTTL:         aws.Long(1),          // Required
+						MinTTL:         aws.Int64(1),         // Required
 						PathPattern:    aws.String("string"), // Required
 						TargetOriginID: aws.String("string"), // Required
 						TrustedSigners: &cloudfront.TrustedSigners{ // Required
-							Enabled:  aws.Boolean(true), // Required
-							Quantity: aws.Long(1),       // Required
+							Enabled:  aws.Bool(true), // Required
+							Quantity: aws.Int64(1),   // Required
 							Items: []*string{
 								aws.String("string"), // Required
 								// More values...
@@ -883,28 +883,28 @@ func ExampleCloudFront_UpdateDistribution() {
 								aws.String("Method"), // Required
 								// More values...
 							},
-							Quantity: aws.Long(1), // Required
+							Quantity: aws.Int64(1), // Required
 							CachedMethods: &cloudfront.CachedMethods{
 								Items: []*string{ // Required
 									aws.String("Method"), // Required
 									// More values...
 								},
-								Quantity: aws.Long(1), // Required
+								Quantity: aws.Int64(1), // Required
 							},
 						},
-						DefaultTTL:      aws.Long(1),
-						MaxTTL:          aws.Long(1),
-						SmoothStreaming: aws.Boolean(true),
+						DefaultTTL:      aws.Int64(1),
+						MaxTTL:          aws.Int64(1),
+						SmoothStreaming: aws.Bool(true),
 					},
 					// More values...
 				},
 			},
 			CustomErrorResponses: &cloudfront.CustomErrorResponses{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*cloudfront.CustomErrorResponse{
 					{ // Required
-						ErrorCode:          aws.Long(1), // Required
-						ErrorCachingMinTTL: aws.Long(1),
+						ErrorCode:          aws.Int64(1), // Required
+						ErrorCachingMinTTL: aws.Int64(1),
 						ResponseCode:       aws.String("string"),
 						ResponsePagePath:   aws.String("string"),
 					},
@@ -914,14 +914,14 @@ func ExampleCloudFront_UpdateDistribution() {
 			DefaultRootObject: aws.String("string"),
 			Logging: &cloudfront.LoggingConfig{
 				Bucket:         aws.String("string"), // Required
-				Enabled:        aws.Boolean(true),    // Required
-				IncludeCookies: aws.Boolean(true),    // Required
+				Enabled:        aws.Bool(true),       // Required
+				IncludeCookies: aws.Bool(true),       // Required
 				Prefix:         aws.String("string"), // Required
 			},
 			PriceClass: aws.String("PriceClass"),
 			Restrictions: &cloudfront.Restrictions{
 				GeoRestriction: &cloudfront.GeoRestriction{ // Required
-					Quantity:        aws.Long(1),                      // Required
+					Quantity:        aws.Int64(1),                     // Required
 					RestrictionType: aws.String("GeoRestrictionType"), // Required
 					Items: []*string{
 						aws.String("string"), // Required
@@ -930,7 +930,7 @@ func ExampleCloudFront_UpdateDistribution() {
 				},
 			},
 			ViewerCertificate: &cloudfront.ViewerCertificate{
-				CloudFrontDefaultCertificate: aws.Boolean(true),
+				CloudFrontDefaultCertificate: aws.Bool(true),
 				IAMCertificateID:             aws.String("string"),
 				MinimumProtocolVersion:       aws.String("MinimumProtocolVersion"),
 				SSLSupportMethod:             aws.String("SSLSupportMethod"),
@@ -968,21 +968,21 @@ func ExampleCloudFront_UpdateStreamingDistribution() {
 		StreamingDistributionConfig: &cloudfront.StreamingDistributionConfig{ // Required
 			CallerReference: aws.String("string"), // Required
 			Comment:         aws.String("string"), // Required
-			Enabled:         aws.Boolean(true),    // Required
+			Enabled:         aws.Bool(true),       // Required
 			S3Origin: &cloudfront.S3Origin{ // Required
 				DomainName:           aws.String("string"), // Required
 				OriginAccessIdentity: aws.String("string"), // Required
 			},
 			TrustedSigners: &cloudfront.TrustedSigners{ // Required
-				Enabled:  aws.Boolean(true), // Required
-				Quantity: aws.Long(1),       // Required
+				Enabled:  aws.Bool(true), // Required
+				Quantity: aws.Int64(1),   // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
 				},
 			},
 			Aliases: &cloudfront.Aliases{
-				Quantity: aws.Long(1), // Required
+				Quantity: aws.Int64(1), // Required
 				Items: []*string{
 					aws.String("string"), // Required
 					// More values...
@@ -990,7 +990,7 @@ func ExampleCloudFront_UpdateStreamingDistribution() {
 			},
 			Logging: &cloudfront.StreamingLoggingConfig{
 				Bucket:  aws.String("string"), // Required
-				Enabled: aws.Boolean(true),    // Required
+				Enabled: aws.Bool(true),       // Required
 				Prefix:  aws.String("string"), // Required
 			},
 			PriceClass: aws.String("PriceClass"),

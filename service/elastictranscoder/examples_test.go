@@ -51,11 +51,11 @@ func ExampleElasticTranscoder_CreateJob() {
 			AspectRatio: aws.String("AspectRatio"),
 			Container:   aws.String("JobContainer"),
 			DetectedProperties: &elastictranscoder.DetectedProperties{
-				DurationMillis: aws.Long(1),
-				FileSize:       aws.Long(1),
+				DurationMillis: aws.Int64(1),
+				FileSize:       aws.Int64(1),
 				FrameRate:      aws.String("FloatString"),
-				Height:         aws.Long(1),
-				Width:          aws.Long(1),
+				Height:         aws.Int64(1),
+				Width:          aws.Int64(1),
 			},
 			Encryption: &elastictranscoder.Encryption{
 				InitializationVector: aws.String("ZeroTo255String"),

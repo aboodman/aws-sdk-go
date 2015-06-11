@@ -30,11 +30,11 @@ func ExampleMobileAnalytics_PutEvents() {
 					// More values...
 				},
 				Metrics: map[string]*float64{
-					"Key": aws.Double(1.0), // Required
+					"Key": aws.Float64(1.0), // Required
 					// More values...
 				},
 				Session: &mobileanalytics.Session{
-					Duration:       aws.Long(1),
+					Duration:       aws.Int64(1),
 					ID:             aws.String("String50Chars"),
 					StartTimestamp: aws.String("ISO8601Timestamp"),
 					StopTimestamp:  aws.String("ISO8601Timestamp"),
